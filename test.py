@@ -1,6 +1,9 @@
-from BACK.authentication.jwt_handler import create_access_token
+from BACK_TOOL.COMMON.verify.mbti import verify_format_mbti_name
+from BACK_TOOL.COMMON.verify.name import verify_name
 
-a = create_access_token("chapssal_kidn")
+a = "학편라"
+b = verify_format_mbti_name(a)
+c = verify_name(a)
 
-print(a)
-print(type(a))
+print(b)
+print(c)

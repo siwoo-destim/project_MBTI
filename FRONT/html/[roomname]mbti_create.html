@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <a href="/">main으로</a><br>
+    <p>여기는 {{ room_name }} 룸이야</p>
+
+    <a href="."> 룸으로 돌아가기 </a>
+
+    <p> 여기서 포스트를 올려</p>
+    <form method="post">
+        <input type="text" value="{{ request_mbti_name }}" name="request_mbti_name" placeholder="input your name">
+        <input type="text" value="{{ request_mbti_mbti }}" name="request_mbti_mbti" placeholder="input your mbti">
+        <input type="text" value="{{ request_mbti_image }}" name="request_mbti_image" placeholder="input your image?">
+        <button type="submit">보내기</button>
+    </form>
+
+    
+
+</body>
+</html>

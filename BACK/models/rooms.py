@@ -1,11 +1,13 @@
 from beanie import Document
-from typing import Optional
 
 
 class Room(Document):
-    creator: str
-    roomname: str
-    alias: Optional[str] = None
+
+    room_creator: str
+    room_name: str
+    room_alias: str
+
+    room_setting_private: bool
 
     class Settings:
         name = "rooms"
@@ -13,8 +15,8 @@ class Room(Document):
     class Config:
         json_schema_extra = {
             "example": {
-                "creator": "chapssal_kind",
-                "roomname": "myroom",
-                "alias": "chapssal's room"
+                "room_creator": "chapssal_kind",
+                "room_name": "myroom",
+                "room_alias": "chapssal's room"
             }
         }

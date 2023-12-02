@@ -6,12 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-
+    <a href="/">main으로</a><br>
 
 
     {% if user%}
         <p>너의 이름은 <a style="color:blue; font-size: 2rem">{{ user }}</a></p>
         <a href="./user/logout/">로.그.아.웃</a>
+
+        <a href="./room/">너만의 룸을 만들어봐!</a>
     {% else %}
     <p> 안녕 난 홈페이지야. 로그인을 하기 바라!</p>
     <p>왜냐면 로그인을하면 너만의 룸(room)을 만들 수 있거든</p>

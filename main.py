@@ -1,8 +1,9 @@
-from BACK.database.connection import Settings
+from BACK_SET.database.connection import Settings
 from BACK.routes.mbti import mbti_router
 from BACK.routes.users import user_router
-from BACK.template.connection import templates
-from BACK.authentication.authenticate import authenticate
+from BACK.routes.rooms import room_router
+from BACK_SET.template.connection import templates
+from BACK_TOOL.COMMON.enterance.authenticate import authenticate
 
 import uvicorn
 
@@ -29,8 +30,10 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 
 # 고정 경로 설정
-app.include_router(mbti_router)
+
 app.include_router(user_router, prefix="/user")
+app.include_router(room_router, prefix="/room")
+app.include_router(mbti_router)
 
 app.mount("/images", StaticFiles(directory="./FRONT/z-images/"), name="images")
 

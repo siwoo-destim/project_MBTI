@@ -1,10 +1,10 @@
 from fastapi import APIRouter, HTTPException, status, Form, Depends, Request
-from BACK.authentication.hash_password import create_hash, verify_hash
+from BACK_TOOL.authentication.hash_password import create_hash, verify_hash
 from BACK.models.users import User, TokenResponse
 from typing import Annotated
 from fastapi.security import OAuth2PasswordRequestForm
-from BACK.authentication.jwt_handler import create_access_token
-from BACK.template.connection import templates
+from BACK_TOOL.authentication.jwt_handler import create_access_token
+from BACK_SET.template.connection import templates
 from fastapi.responses import RedirectResponse
 
 user_router = APIRouter()

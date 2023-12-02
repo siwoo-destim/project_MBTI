@@ -5,6 +5,21 @@
     <title>Title</title>
 </head>
 <body>
+    <a href="/">main으로</a><br>
+    <p>여기는 "{{ room.room_alias }}" 룸이야</p>
+
+    <a href="./mbti/create"> 포스트 올리기 </a>
+    <p> 포스트들 </p>
+
+    {% for mbti in mbti_posts %}
+    <hr>
+    <p>이름: {{ mbti.mbti_name }}</p>
+    <p>mbti: {{ mbti.mbti_mbti }}</p>
+    <p>이미지: {{ mbti.mbti_image }}</p>
+    {% endfor%}
+
+
+    
 
 </body>
 </html>
