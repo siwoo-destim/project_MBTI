@@ -1,0 +1,26 @@
+{% extends 'LAYOUT.html' %}
+
+{% block container %}
+
+<a href="./create">룸 만들기</a>
+
+
+<p>여기엔 너의 방들이 있어.</p>
+<div id="my_room">
+    {% for my_room in my_rooms %}
+    <a href="../{{ my_room.room_name }}/mbti"><p> 룸별명: {{ my_room.room_alias }},    룸이름: {{ my_room.room_name }}</p></a>
+    {% endfor %}
+</div>
+
+<p> 이 밑은 공개방</p>
+{% for room in rooms %}
+    <a href="../{{ room.room_name }}/mbti"><p> 룸별명: {{ room.room_alias }},    룸이름: {{ room.room_name }}</p></a>
+{% endfor %}
+
+{% endblock %}
+
+<style>
+    #my_room {
+        color: deeppink
+    }
+</style>
