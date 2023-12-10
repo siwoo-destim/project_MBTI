@@ -39,7 +39,7 @@ async def sign_user_up(username: Annotated[str, Form()],
             detail="User with user_name provided already exists"
         )
 
-    verified_user = verify_name(user)
+    verified_user = verify_name(username)
 
     if not verified_user:
         return HTTPException(
