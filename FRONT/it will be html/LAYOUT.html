@@ -1,28 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <a href="/">main으로</a><br>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>너의 MBTI는</title>
 
-    {% if user%}
-        <br>
-        <p>너의 이름은 <a style="color:blue; font-size: 2rem">{{ user }}</a></p>
-        <a href="/user/logout/">로.그.아.웃</a>
-        <br>
-    {% else %}
-        <br>
-        <a href="/user/login/">여기가 로그인 하는 곳이야</a>
-        <a href="/user/signup/">여기가 회원가입 하는 곳이야</a>
-        <br>
-    {% endif %}
-    <a href="/room/">룸들</a>
-    <hr>
+        {% block head %}
+        {% endblock %}
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Noto+Sans+KR:wght@300&family=Playpen+Sans&family=Roboto:wght@500&family=Young+Serif&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+
+
+
+
+
+
+<body>
+    <nav class="nav">
+
+            <a href="/" id="title">너의 MBTI는</a> <!-- home로 이동 -->
+
+            <div id="search">
+
+                <form action="#" method="post"> <!-- rooms로 이동하여 검색결과 도출 -->
+
+                    <input type="search" name="search" placeholder="검색하기">
+
+                    <button type="submit" class="material-symbols-outlined">
+                        search
+                    </button>
+
+                </form>
+
+            </div>
+
+            <div id="menu">
+
+                <input type="checkbox" id="menuToggle">
+                <div class="bar_back"></div>
+                <div class="bar">
+
+                    <div class="bar_top">
+
+                        <label for="menuToggle" class="material-symbols-outlined">menu</label>
+                        <h1>메뉴</h1>
+
+                    </div>
+
+                    <div class="bar_content">
+
+                        <ul>
+                            <li><a href="/explain/">소개</a></li> <!-- home로 이동 -->
+                            <li><a href="/room/">룸들</a></li> <!-- rooms로 이동 -->
+                            {% if user%}
+                                <li><a href="/user/logout/">로.그.아.웃</a></li>
+                            {% else %}
+                                <li><a href="/user/login/">로그인</a></li>
+                                <li><a href="/user/signup/">회원가입</a></li>
+                            {% endif %}
+                        </ul>
+
+                    </div>
+
+                </div>
+                <label for="menuToggle" class="material-symbols-outlined">menu</label>
+
+
+            </div>
+
+        </nav>
 
     {% block container %}
     {% endblock %}
+
+    <section class="other">
+
+        <div class="text">
+
+        <h1>문의 이메일 :</h1>
+        <p>sycd23kr@gmail.com</p>
+        <br>
+        <br>
+        <p><span id="corp">2023 SYCD</span></p>
+
+        </div>
+
+    </section>
 
 </body>
 </html>

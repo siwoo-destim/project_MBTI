@@ -11,6 +11,7 @@ from starlette.staticfiles import StaticFiles
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request, Depends
 from typing import Annotated
+from fastapi.responses import RedirectResponse
 # --------------------------------------------------------------------------------
 
 # 데이터베이스 세팅
@@ -35,19 +36,30 @@ app.include_router(user_router, prefix="/user")
 app.include_router(room_router, prefix="/room")
 app.include_router(mbti_router)
 
-app.mount("/images", StaticFiles(directory="./FRONT/z-images/"), name="images")
+app.mount("/images", StaticFiles(directory="./store/"), name="images")
+app.mount('/css', StaticFiles(directory='./FRONT/css/'), name='css')
+app.mount('/js', StaticFiles(directory='./FRONT/js/'), name='js')
 
 
 # --------------------------------------------------------------------------------
 
 
-@app.get("/")
-async def main(request: Request, user: Annotated[str, Depends(authenticate)]):
+@app.get("/explain")
+async def retrieve_explain_page(request: Request, user: Annotated[str, Depends(authenticate)]):
 
-    return templates.TemplateResponse("main.html", {
+    return templates.TemplateResponse("explain.html", {
         "request": request,
         "user": user
     })
+
+
+@app.get('/')
+async def redirect_page(user: Annotated[str, Depends(authenticate)]):
+
+    if user:
+        return RedirectResponse('/room', status_code=302)
+    else:
+        return RedirectResponse('/explain', status_code=302)
 
 
 if __name__ == "__main__":

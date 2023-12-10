@@ -1,10 +1,10 @@
-from BACK_TOOL.COMMON.verify.mbti import verify_format_mbti_name, verify_format_mbti_mbti
+from BACK_TOOL.COMMON.verify.mbti import verify_format_name_weakly, verify_format_mbti_mbti
 from fastapi import Form, HTTPException, status
 from typing import Annotated
 
 
 async def entrance_of_mbti_name_asform(request_mbti_name: Annotated[str, Form()]):
-    mbti_name = verify_format_mbti_name(request_mbti_name)
+    mbti_name = verify_format_name_weakly(request_mbti_name)
 
     if not mbti_name:
 

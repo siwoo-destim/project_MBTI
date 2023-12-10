@@ -6,6 +6,9 @@ from fastapi.security import OAuth2PasswordRequestForm
 from BACK_TOOL.authentication.jwt_handler import create_access_token
 from BACK_SET.template.connection import templates
 from fastapi.responses import RedirectResponse
+from BACK_TOOL.COMMON.verify.name import verify_name
+from BACK_TOOL.COMMON.enterance.authenticate import authenticate
+
 
 user_router = APIRouter()
 
@@ -13,10 +16,12 @@ user_router = APIRouter()
 
 
 @user_router.get("/signup")
-async def retrieve_sign_up_page(request: Request):
+async def retrieve_sign_up_page(raw_user: Annotated[str, Depends(authenticate)],
+                                request: Request):
 
     return templates.TemplateResponse("user_signup.html", {
-        "request": request
+        "request": request,
+        "user": raw_user
     })
 
 
@@ -32,6 +37,14 @@ async def sign_user_up(username: Annotated[str, Form()],
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
             detail="User with user_name provided already exists"
+        )
+
+    verified_user = verify_name(user)
+
+    if not verified_user:
+        return HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="유저 이름 이상함"
         )
 
     # ----- ----- PASSWORD 해쉬
@@ -60,9 +73,11 @@ async def sign_user_up(username: Annotated[str, Form()],
 
 
 @user_router.get("/login")
-async def retrieve_sign_up_page(request: Request):
+async def retrieve_sign_up_page(raw_user: Annotated[str, Depends(authenticate)],
+                                request: Request):
     return templates.TemplateResponse("user_login.html", {
-        "request": request
+        "request": request,
+        "user": raw_user
     })
 
 

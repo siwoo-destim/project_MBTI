@@ -1,13 +1,58 @@
 {% extends 'LAYOUT.html' %}
 
+
+
+{% block head %}
+<link rel="stylesheet" href="../css/make_room.css">
+{% endblock %}
+
+
+
+
+
+
 {% block container %}
-<p>여기서 룸을 만들어</p>
-<form method="post">
-    <input id="request_room_name" type="text" placeholder="input your room name" value="{{ request_room_name }}" name="request_room_name">
-    <input id="request_room_alias" type="text" placeholder="input your room alias" value="{{ request_room_alias }}" name="request_room_alias">
-    <input id="request_room_setting_private" type="checkbox" value="True" name="request_room_setting_private">
-    <input type="hidden" value="False" name="request_room_setting_private">
-    <label for="request_room_setting_private"> 비공개</label>
-    <button type="submit"> 보내기</button>
-</form>
+<section class="content">
+
+        <form method="post"> <!-- 폼 제출시 rooms로 이동 -->
+
+            <div id="top">
+
+                방 만들기
+
+            </div>
+
+            <div id="room_title">
+
+                <h1>방 이름 :</h1>
+
+                <input id="request_room_name" type="text" placeholder="input your room name" value="{{ request_room_name }}" name="request_room_name">
+
+                <h1>방 별명 :</h1>
+
+                <input id="request_room_alias" type="text" placeholder="input your room alias" value="{{ request_room_alias }}" name="request_room_alias">
+
+            </div>
+
+            <div id="room_visibility">
+
+                <div>
+
+                    <input id="request_room_setting_private" type="checkbox" value="True" name="request_room_setting_private">
+                    <input type="hidden" value="False" name="request_room_setting_private">
+                    <label for="request_room_setting_private"> 비공개</label>
+
+                </div>
+
+            </div>
+
+            <div id="submit">
+
+                <input type="submit" value="만들기">
+
+            </div>
+
+        </form>
+
+    </section>
 {% endblock %}

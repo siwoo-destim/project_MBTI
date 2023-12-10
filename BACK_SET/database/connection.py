@@ -14,6 +14,8 @@ class Settings(BaseSettings):
     DATABASE_NAME: Optional[str] = None
     JWT_ACCESS_SECRET_KEY: Optional[str] = None
 
+    IMAGE_STORE_DIR: Optional[str]= None
+
     async def initialize_database(self):
         client = AsyncIOMotorClient(self.DATABASE_URL)
         await init_beanie(database=client.get_database(self.DATABASE_NAME),

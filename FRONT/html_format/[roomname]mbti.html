@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <a href="/">main으로</a><br>
+{% extends 'LAYOUT.html' %}
+
+{% block container %}
+
     <p>여기는 "{{ room.room_alias }}" 룸이야</p>
 
     <a href="./mbti/create"> 포스트 올리기 </a>
@@ -15,11 +11,8 @@
     <hr>
     <p>이름: {{ mbti.mbti_name }}</p>
     <p>mbti: {{ mbti.mbti_mbti }}</p>
-    <p>이미지: {{ mbti.mbti_image }}</p>
+    <p>이미지: {{ mbti.mbti_img }}</p>
+    <img src="../../images/{{ mbti.mbti_img }}" alt="{{ mbti.mbti_name }}" style="width: 250px;">
     {% endfor%}
 
-
-    
-
-</body>
-</html>
+{% endblock %}

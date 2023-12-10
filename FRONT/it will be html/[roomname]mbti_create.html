@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <a href="/">main으로</a><br>
+{% extends 'LAYOUT.html' %}
+
+{% block container %}
+
     <p>여기는 {{ room_name }} 룸이야</p>
 
     <a href="."> 룸으로 돌아가기 </a>
@@ -19,7 +15,4 @@
         <button type="submit">보내기</button>
     </form>
 
-    
-
-</body>
-</html>
+{% endblock %}

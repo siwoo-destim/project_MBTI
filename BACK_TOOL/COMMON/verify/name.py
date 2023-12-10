@@ -6,6 +6,6 @@ def verify_name(room_name):
     m = p.match(room_name)
     if m:
         if m.group() == room_name:
-            return '@' + m.group()
+            return m.group()
 
     return False

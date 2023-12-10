@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+    <a href="/">main으로</a><br>
+
+    {% if user%}
+        <br>
+        <p>너의 이름은 <a style="color:blue; font-size: 2rem">{{ user }}</a></p>
+        <a href="/user/logout/">로.그.아.웃</a>
+        <br>
+    {% else %}
+        <br>
+        <a href="/user/login/">여기가 로그인 하는 곳이야</a>
+        <a href="/user/signup/">여기가 회원가입 하는 곳이야</a>
+        <br>
+    {% endif %}
+    <a href="/room/">룸들</a>
+    <hr>
+
+    {% block container %}
+    {% endblock %}
+
 </body>
 </html>

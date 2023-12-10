@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'LAYOUT.html' %}
+
+{% block container %}
+<p>여기서 룸을 만들어</p>
+<form method="post">
+    <input id="request_room_name" type="text" placeholder="input your room name" value="{{ request_room_name }}" name="request_room_name">
+    <input id="request_room_alias" type="text" placeholder="input your room alias" value="{{ request_room_alias }}" name="request_room_alias">
+    <input id="request_room_setting_private" type="checkbox" value="True" name="request_room_setting_private">
+    <input type="hidden" value="False" name="request_room_setting_private">
+    <label for="request_room_setting_private"> 비공개</label>
+    <button type="submit"> 보내기</button>
+</form>
+{% endblock %}
