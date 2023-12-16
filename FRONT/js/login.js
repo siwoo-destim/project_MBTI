@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded",
     function(e) {
         
 
-        const usernameInput = document.querySelector('input[name="Username"]');
-        const passwordInput = document.querySelector('input[name="Password"]');
+        const usernameInput = document.querySelector('input[name="username"]');
+        const passwordInput = document.querySelector('input[name="password"]');
         const form = document.getElementById('box');
         const usernameErrorDiv = createErrorDiv('usernameError');
         const passwordErrorDiv = createErrorDiv('passwordError');
@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded",
         passwordInput.addEventListener('input', () => validateInput(passwordInput, passwordErrorDiv, /^[a-zA-Z0-9!@#$%^&*()_+]{8,}$/, "유효한 비밀번호를 입력해주세요"));
 
         form.addEventListener('submit', function(event) {
-            console.log("폼 제출 시도");
             const isUsernameValid = validateInput(usernameInput, usernameErrorDiv, /^[a-zA-Z0-9]{8,}$/, "유효한 사용자 이름을 입력해주세요");
             const isPasswordValid = validateInput(passwordInput, passwordErrorDiv, /^[a-zA-Z0-9!@#$%^&*()_+]{8,}$/, "유효한 비밀번호를 입력해주세요");
     

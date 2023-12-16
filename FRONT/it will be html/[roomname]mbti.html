@@ -3,62 +3,74 @@
 
 {% block head %}
 <link rel="stylesheet" href="../css/in_rooms.css">
+
+<script src="../js/in_rooms.js"></script>
 {% endblock %}
 
+{% block top %}
+            
+<div id="search">
 
+    <form method="post">
 
+        <input type="search" name="search" placeholder="검색하기">
+
+        <button type="submit" class="material-symbols-outlined">
+            search
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}
 
 {% block container %}
 
     <div class="head">
 
-            <a href="./"><h1>{{ room.room_alias }}</h1></a> <!-- {{room.name}} -->
+        <a href="./"><h1>{{ room.room_alias }}</h1></a>
 
-            <br>
+        <br>
 
-            <a href="./mbti/create"> <!-- make_article로 이동 -->
+        <a href="./mbti/create">
 
-                <div class="make_article">
+            <div class="make_article">
 
-                    게시물 올리기!
+                게시물 올리기!
 
-                </div>
+            </div>
 
-            </a>
+        </a>
 
-        </div>
+    </div>
 
-        <section class="content">
+    <section class="content">
 
-            {% for mbti in mbti_posts %}
+        {% for mbti in mbti_posts %}
 
-            <a href="#" class="box"> <!-- details로 이동 --> <!-- 여기 나중에 주목!주목!주목!주목!주목!주목!주목!주목!주목!주목!주목!주목!주목!-->
+        <a href="#" class="box">
 
-                <div class="img">
+            <div class="img">
 
-                    <img src="../../images/{{ mbti.mbti_img }}" alt="{{ mbti.mbti_name }}" style="width: 100px"> <!-- 크기 조절하셈 to 하편라-->
+                <img src="../../images/{{ mbti.mbti_img }}" alt="{{ mbti.mbti_name }}" style="width: 100px">
 
-                </div>
+            </div>
 
-                <ul class="info">
+            <ul class="info">
 
-                    <li class="name">이름 : {{ mbti.mbti_name }}</li>
-                    <li class="mbti">MBTI : {{ mbti.mbti_mbti }}</li>
+                <li class="name">이름 : {{ mbti.mbti_name }}</li>
+                <li class="mbti">MBTI : {{ mbti.mbti_mbti }}</li>    
 
-                </ul>
+            </ul>
 
-            </a>
+        </a>
 
-            {% endfor%}
+        {% endfor%}
 
-        </section>
+    </section>
 
-
-
-
-
-
-    {% endblock %}
+{% endblock %}
 
 
 

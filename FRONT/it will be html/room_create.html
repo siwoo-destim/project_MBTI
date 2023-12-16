@@ -1,58 +1,65 @@
 {% extends 'LAYOUT.html' %}
 
-
-
 {% block head %}
+
 <link rel="stylesheet" href="../css/make_room.css">
+
+<script src="../js/make_room.js"></script>
+
 {% endblock %}
 
+{% block top %}
 
+<a href="#" id="sub_title">방 만들기</a>
 
-
-
+{% endblock %}
 
 {% block container %}
 <section class="content">
 
-        <form method="post"> <!-- 폼 제출시 rooms로 이동 -->
+    <form method="post" id="box">
 
-            <div id="top">
+        <div id="top">
 
-                방 만들기
+            방 만들기
 
-            </div>
+        </div>
 
-            <div id="room_title">
+        <div class="input_room">
 
-                <h1>방 이름 :</h1>
+            <h1>방 이름 :</h1>
+        
+            <input type="text" value="{{ request_room_alias }}" name="request_room_alias">
 
-                <input id="request_room_name" type="text" placeholder="input your room name" value="{{ request_room_name }}" name="request_room_name">
+        </div>
 
-                <h1>방 별명 :</h1>
+        <div class="input_room">
 
-                <input id="request_room_alias" type="text" placeholder="input your room alias" value="{{ request_room_alias }}" name="request_room_alias">
+            <h1>방 아이디 :</h1>
+        
+            <input type="text" value="{{ request_room_name }}" name="request_room_name">
 
-            </div>
+        </div>
 
-            <div id="room_visibility">
+        <div id="room_visibility">
+            
+            <div>
 
-                <div>
-
-                    <input id="request_room_setting_private" type="checkbox" value="True" name="request_room_setting_private">
-                    <input type="hidden" value="False" name="request_room_setting_private">
-                    <label for="request_room_setting_private"> 비공개</label>
-
-                </div>
-
-            </div>
-
-            <div id="submit">
-
-                <input type="submit" value="만들기">
+                <input id="radio2" type="checkbox" value="True" name="request_room_setting_private">
+                <input type="hidden" value="False" name="request_room_setting_private">
+                <label for="request_room_setting_private"> 비공개</label>
 
             </div>
+            
+        </div>
 
-        </form>
+        <div id="submit">
 
-    </section>
+            <input type="submit" value="만들기">
+
+        </div>
+
+    </form>
+
+</section>
 {% endblock %}

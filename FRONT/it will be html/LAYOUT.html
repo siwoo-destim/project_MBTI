@@ -8,6 +8,8 @@
         {% block head %}
         {% endblock %}
 
+        <link rel="stylesheet" href="../css/LAYOUT.css">
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Hi+Melody&family=Noto+Sans+KR:wght@300&family=Playpen+Sans&family=Roboto:wght@500&family=Young+Serif&display=swap" rel="stylesheet">
@@ -24,21 +26,10 @@
 <body>
     <nav class="nav">
 
-            <a href="/" id="title">너의 MBTI는</a> <!-- home로 이동 -->
+            <a href="/" id="title">너의 MBTI는</a>
 
-            <div id="search">
-
-                <form action="#" method="post"> <!-- rooms로 이동하여 검색결과 도출 -->
-
-                    <input type="search" name="search" placeholder="검색하기">
-
-                    <button type="submit" class="material-symbols-outlined">
-                        search
-                    </button>
-
-                </form>
-
-            </div>
+            {% block top %}
+            {% endblock %}
 
             <div id="menu">
 
@@ -56,8 +47,8 @@
                     <div class="bar_content">
 
                         <ul>
-                            <li><a href="/explain/">소개</a></li> <!-- home로 이동 -->
-                            <li><a href="/room/">룸들</a></li> <!-- rooms로 이동 -->
+                            <li><a href="/explain/">소개</a></li>
+                            <li><a href="/room/">룸들</a></li> 
                             {% if user%}
                                 <li><a href="/user/logout/">로.그.아.웃</a></li>
                             {% else %}
@@ -83,11 +74,10 @@
 
         <div class="text">
 
-        <h1>문의 이메일 :</h1>
-        <p>sycd23kr@gmail.com</p>
-        <br>
-        <br>
-        <p><span id="corp">2023 SYCD</span></p>
+            <h1>문의 이메일 :</h1>
+            <p>sycd23kr@gmail.com</p>
+            <br>
+            <p><span id="corp">2023 SYCD</span></p>
 
         </div>
 

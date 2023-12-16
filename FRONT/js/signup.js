@@ -2,21 +2,20 @@ document.addEventListener("DOMContentLoaded",
 
     function(e) {
 
-        const usernameInput = document.querySelector('input[name="Username"]');
-        const passwordInput = document.querySelector('input[name="Password"]');
+        const usernameInput = document.querySelector('input[name="username"]');
+        const passwordInput = document.querySelector('input[name="password"]');
         const confirmPasswordInput = document.querySelector('input[name="Confirm_Password"]');
         const form = document.getElementById('box');
         const usernameErrorDiv = createErrorDiv('usernameError');
         const passwordErrorDiv = createErrorDiv('passwordError');
         const confirmPasswordErrorDiv = createErrorDiv('confirmPasswordError');
 
-        usernameInput.addEventListener('input', () => validateInput(usernameInput, usernameErrorDiv, /^[a-zA-Z0-9]{8,}$/, "유효한 사용자 이름을 입력해주세요(8자 이상의 영문과 특수문자만)"));
+        usernameInput.addEventListener('input', () => validateInput(usernameInput, usernameErrorDiv, /^[a-zA-Z0-9]{8,}$/, "유효한 사용자 아이디를 입력해주세요(8자 이상의 영문과 특수문자만)"));
         passwordInput.addEventListener('input', () => validateInput(passwordInput, passwordErrorDiv, /^[a-zA-Z0-9!@#$%^&*()_+]{8,}$/, "유효한 비밀번호를 입력해주세요(8자 이상의 영문, 특수문자, 숫자)"));
         confirmPasswordInput.addEventListener('input', () => matchPasswords(passwordInput, confirmPasswordInput, confirmPasswordErrorDiv, "비밀번호가 일치하지 않습니다"));
 
         form.addEventListener('submit', function(event) {
-            console.log("폼 제출 시도");
-            const isUsernameValid = validateInput(usernameInput, usernameErrorDiv, /^[a-zA-Z0-9]{8,}$/, "유효한 사용자 이름을 입력해주세요(8자 이상의 영문과 특수문자만)");
+            const isUsernameValid = validateInput(usernameInput, usernameErrorDiv, /^[a-zA-Z0-9]{8,}$/, "유효한 사용자 아이디를 입력해주세요(8자 이상의 영문과 특수문자만)");
             const isPasswordValid = validateInput(passwordInput, passwordErrorDiv, /^[a-zA-Z0-9!@#$%^&*()_+]{8,}$/, "유효한 비밀번호를 입력해주세요(8자 이상의 영문, 특수문자, 숫자)");
             const arePasswordsMatching = matchPasswords(passwordInput, confirmPasswordInput, confirmPasswordErrorDiv, "비밀번호가 일치하지 않습니다");
 

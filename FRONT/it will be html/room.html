@@ -1,32 +1,119 @@
 {% extends 'LAYOUT.html' %}
 
+{% block head %}
 
-
-
-
-
-
-{% block container %}
-
-<a href="./create">룸 만들기</a>
-
-
-<p>여기엔 너의 방들이 있어.</p>
-<div id="my_room">
-    {% for my_room in my_rooms %}
-    <a href="../{{ my_room.room_name }}/mbti"><p> 룸별명: {{ my_room.room_alias }},    룸이름: {{ my_room.room_name }}</p></a>
-    {% endfor %}
-</div>
-
-<p> 이 밑은 공개방</p>
-{% for room in rooms %}
-    <a href="../{{ room.room_name }}/mbti"><p> 룸별명: {{ room.room_alias }},    룸이름: {{ room.room_name }}</p></a>
-{% endfor %}
+<link rel="stylesheet" href="../css/rooms.css">
 
 {% endblock %}
 
-<style>
-    #my_room {
-        color: deeppink
-    }
-</style>
+{% block top %}
+            
+<div id="search">
+
+    <form method="post">
+
+        <input type="search" name="search" placeholder="검색하기">
+
+        <button type="submit" class="material-symbols-outlined">
+            search
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}
+
+{% block container %}
+    <section class="content">
+
+        {% if my_rooms %}
+
+        <div class="head">
+
+            <a href="/room/"><h1>나의 방</h1></a>
+
+            <br>
+
+            <a href="create/">
+
+                <div class="make_room">
+
+                    방 만들기!
+
+                </div>
+
+            </a>
+
+        </div>
+
+        <div class="box">
+
+            {% for my_room in my_rooms %}
+
+            <a href="../{{ my_room.room_name }}/mbti">
+                <div class="room">
+
+                    <h1>{{ my_room.room_alias }}</h1>
+
+                    <ul>
+                    
+                        <li><h2>by. {{my_room.room_creator}}</h2></li>
+
+                    </ul>
+
+                </div>
+
+            </a>
+
+            {% endfor %}
+
+        </div>
+
+        {% endif %}
+
+        <div class="head">
+
+            <a href="/room/"><h1>방 갤러리</h1></a>
+
+            <br>
+
+            <a href="create/">
+
+                <div class="make_room">
+
+                    방 만들기!
+
+                </div>
+
+            </a>
+
+        </div>
+
+        <div class="box">
+
+            {% for room in rooms %}
+
+            <a href="../{{ room.room_name }}/mbti">
+
+                <div class="room">
+
+                    <h1>{{ room.room_alias }}</h1>
+
+                    <ul>
+                    
+                        <li><h2>by. {{ room.room_creator }}</h2></li>
+
+                    </ul>
+
+                </div>
+
+            </a>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+{% endblock %}

@@ -1,62 +1,44 @@
-* {
-    margin: 0;
-    padding: 0;
+@media screen and (max-width: 500px) {
+    #search {
+        width: 150px;
 
+    }
+
+    #menu {
+        width: 100%;
     
+        display: flex;
+        justify-content: center;
+    }
 }
 
-html {
-    font-family: 'Hi Melody', sans-serif;
+@media screen and (min-width: 501px) {
+    #search {
+        height: 40%;
+        width: 100%;
 
-    height: 915px;
-    width: 412px;
+        background-color: white;
+        padding-left: 5px;
+        padding-right: 5px;
+
+        border: 2px solid black;
+        border-radius: 5px;
+        margin: 0 auto;
+    }
+
+    #menu {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    } 
+
+    #menu label {
+        margin-right: 10px;
+    }
 }
-
-body {
-    height: 100%;
-    width: 100%;
-}
-
-.nav {
-    height: 8%;
-    width: 412px;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-
-    background-color: pink;
-
-    border-bottom: 2px solid black;
-
-    position: fixed;
-    top: 0;
-}
-
-
-#title {
-    width: 180px;
-
-    text-decoration: none;
-    color: black;
-
-    font-size: 40px;
-    font-weight: 1000;
-
-    user-select: none;
-
-    margin-left: 10px;
-}
-
-#title:active {
-    color: rgba(0, 0, 0, 0.637);
-    background-color: transparent;
-}
-
 
 #search {
     height: 40%;
-    width: 150px;
 
     background-color: white ;
 
@@ -76,7 +58,7 @@ body {
     align-items: center;
 }
 
-.material-symbols-outlined {
+#search .material-symbols-outlined {
     border: none;
 
     background-color: white;
@@ -84,6 +66,8 @@ body {
     color: rgba(0, 0, 0, 0.637);
 
     user-select: none;
+
+    font-size: 130%;
 
 }
 
@@ -100,130 +84,6 @@ body {
     outline: none;
 }
 
-#menu {
-    width: 100%;
-
-    display: flex;
-    justify-content: center;
-
-    margin-right: 5px;
-}
-
-#menu label {
-
-    background-color: pink;
-    font-size: 35px;
-    color: black;
-}
-
-.bar_back {
-    visibility: hidden;
-    position: fixed;
-
-    height: 100vh;
-    width: 100vw;
-
-    top: 0;
-    left: 0;
-    z-index: 1;
-    background-color: rgba(128, 128, 128, 0);
-
-    transition: visibility 0s 0.7s, background-color 0.7s;
-}
-
-.bar {
-    position: fixed;
-
-    height: 100%;
-    width: 183px;
-
-    top: 0;
-    right: -183px;
-    z-index: 2;
-
-    background-color: pink;
-
-    transition: right 0.7s;
-}
-
-.bar_top {
-    height: 8%;
-    width: 100%;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    border-bottom: 2px solid black;
-}
-
-.bar_top h1 {
-    margin-right: 20px;
-
-    font-size: 40px;
-}
-
-.bar_top label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin-left: 20px;
-    padding-right: 20px;
-}
-
-.bar_content {
-    height: 76%;
-    width: 100%;
-}
-
-.bar_content ul {
-    display: grid;
-    grid-template-columns: auto;
-}
-
-.bar_content li {
-    list-style: none;
-
-    display: flex;
-    justify-content: end;
-    
-    font-size: 30px;
-    font-weight: 600;
-
-    padding-top: 10px;
-    padding-bottom: 10px;
-
-    border-bottom: 1px solid black;
-}
-
-.bar_content a {
-    text-decoration: none;
-    color: black;
-
-    margin-right: 20px;
-}
-
-
-
-
-#menu input:checked + .bar_back {
-    visibility: visible;
-    background-color: rgba(128, 128, 128, 0.808);
-    transition-delay: 0s;
-}
-
-#menu input:checked ~ .bar {
-    right: 0;
-}
-
-#menu input {
-    display: none;
-}
-
-
-
-
 .content {
     height: 84%;
     width: 100%;
@@ -235,8 +95,8 @@ body {
 
 .content .text {
     height: fit-content;
-    padding-top: 110px;
-    margin-bottom: 35px;
+    margin-top: 18%;
+    margin-bottom: 16%;
 }
 
 .content h1 {
@@ -261,66 +121,32 @@ body {
 
     padding: 2px;
 
-    background-color: rgb(57, 221, 35);
+    background-color: rgba(255, 192, 203, 0.44);
 
-    border: 2px solid green;
+    border: 2px solid black;
     border-radius: 5px;
 }
 
 #모든 {
     padding: 0px 2px 0px 2px;
     border-radius: 2px;
-    background-color: rgb(231, 138, 138);
+    background-color: rgba(231, 138, 138, 0.5);
 }
 
 .MBTI {
     padding: 0px 2px 0px 2px;
     border-radius: 2px;
-    background-color: rgb(28, 207, 207);
+    background-color: rgba(28, 207, 207, 0.5);
 }
 
 .방 {
     padding: 0px 2px 0px 2px;
     border-radius: 2px;
-    background-color: rgb(169, 152, 226);
+    background-color: rgba(169, 152, 226, 0.5);
 }
 
-#초록색 {
+#핑크색 {
     padding: 0px 2px 0px 2px;
     border-radius: 2px;
-    background-color: rgb(15, 235, 15);
-}
-
-.other {
-    height: 16%;
-    width: 412px;
-
-    border-top: 2px solid ;
-
-    background-color: pink;
-
-    position: fixed;
-    bottom: 0;
-}
-
-.other .text {
-    text-align: center;
-
-    padding-top: 1rem;
-
-    
-}
-
-.other .text h1 {
-    font-size: 20px;
-}
-
-.other .text p {
-    font-size: 20px;
-
-    font-weight: 600;
-}
-
-#corp {
-    color: rgba(0, 0, 0, 0.119);
+    background-color: rgba(255, 192, 203, 0.5);
 }
