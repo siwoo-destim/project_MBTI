@@ -21,9 +21,13 @@ async def retrieve_create_room_page(request: Request,
                                     raw_user: Annotated[str, Depends(authenticate)]):
     # ――――――――――――――――――――――――――――――――――――――――――――――――――
 
+    if not raw_user:
+        response = RedirectResponse('/user/signup', status_code=302)
+        return response
+
     return templates.TemplateResponse('room_create.html', {
         'request': request,
-        'user': raw_user
+        'user': raw_user,
     })
 
 
@@ -37,6 +41,14 @@ async def add_room(request_user: Annotated[str, Depends(authenticate)],
                    request_room_alias: Annotated[str, Form()],
                    request_room_setting_private: Annotated[str, Depends(entrance_room_setting_private)]):
     # ――――――――――――――――――――――――――――――――――――――――――――――――――
+
+    # 로그인 되어있는지 확인
+    if not request_user:
+        return HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Login for creating own rooms"
+        )
+
     # 룸 이름 확인
     verified_room_name = verify_name(request_room_name)
 
@@ -77,7 +89,7 @@ async def add_room(request_user: Annotated[str, Depends(authenticate)],
     )
     await Room.insert_one(insert_room)
 
-    response = RedirectResponse(f"/{verified_room_name}/mbti", status_code=302)
+    response = RedirectResponse(f"/mbti/{verified_room_name}", status_code=302)
     return response
 
 # 룸들 보기]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

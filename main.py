@@ -34,7 +34,7 @@ app = FastAPI(lifespan=lifespan)
 
 app.include_router(user_router, prefix="/user")
 app.include_router(room_router, prefix="/room")
-app.include_router(mbti_router)
+app.include_router(mbti_router, prefix="/mbti")
 
 app.mount("/images", StaticFiles(directory="./store/"), name="images")
 app.mount('/css', StaticFiles(directory='./FRONT/css/'), name='css')

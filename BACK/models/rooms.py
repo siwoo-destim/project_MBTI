@@ -1,10 +1,16 @@
-from beanie import Document
+import pymongo
+from beanie import Document, Indexed
+from pydantic import BaseModel
+
+
+class RoomFilterOnAlias(BaseModel):
+    room_alias: str
 
 
 class Room(Document):
 
     room_creator: str
-    room_name: str
+    room_name: Indexed(str, index_type=pymongo.TEXT)
     room_alias: str
 
     room_setting_private: bool
