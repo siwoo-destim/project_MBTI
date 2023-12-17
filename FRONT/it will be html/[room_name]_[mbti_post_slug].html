@@ -2,22 +2,33 @@
 
 {% block container %}
 
-    <a href="."> 룸으로 돌아가기 </a>
+    <br><br><br><br><br><br><br><br><br>
+    <!-- 위 아래 둘 지워도 됨 (br, div)-->
+    <div style="font-size: 40px;">
 
-    <p>이름: {{ mbti.mbti_name }}</p>
-    <p>mbti: {{ mbti.mbti_mbti }}</p>
-    <p>이미지: <img src="/images/{{ mbti.mbti_img }}" alt="{{ mbti.mbti_name }}"> </p>
 
-    <select id="selectbox" name="selectbox" onchange="chageMBTISelect()">
-        <option value="" selected disabled> MBTI 선택</option>
-        {% for mbti_relationship in mbti_relationships %}
-        <option value="{{ mbti_relationship.relationship }}"> {{ mbti_relationship.stakeholders }} </option>
-        {% endfor %}
-    </select>
 
-    <p><span id="yourMBTI"> 당신의 MBTI(선택해 주세요!)</span>와 {{ mbti.mbti_mbti }}의 관계</p>
+        <a href="."> 룸으로 돌아가기 </a>
 
-    <p id="mbtiRelationship"> </p>
+        <p>이름: {{ mbti.mbti_name }}</p>
+        <p>mbti: {{ mbti.mbti_mbti }}</p>
+        <p>이미지: <img src="/images/{{ mbti.mbti_img }}" alt="{{ mbti.mbti_name }}"> </p>
+
+        <select id="selectbox" name="selectbox" onchange="chageMBTISelect()">
+            <option value="" selected disabled> MBTI 선택</option>
+            {% for mbti_relationship in mbti_relationships %}
+            <option value="{{ mbti_relationship.relationship }}"> {{ mbti_relationship.stakeholders }} </option>
+            {% endfor %}
+        </select>
+
+        <p><span id="yourMBTI"> 당신의 MBTI(선택해 주세요!)</span>와 {{ mbti.mbti_mbti }}의 관계</p>
+
+        <p id="mbtiRelationship"> </p>
+
+
+
+
+    </div>
 
 {% endblock %}
 

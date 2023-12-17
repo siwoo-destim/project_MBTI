@@ -2,9 +2,9 @@
 
 
 {% block head %}
-<link rel="stylesheet" href="../css/in_rooms.css">
+<link rel="stylesheet" href="/css/in_rooms.css">
 
-<script src="../js/in_rooms.js"></script>
+<script src="/js/in_rooms.js"></script>
 {% endblock %}
 
 {% block top %}
@@ -33,7 +33,7 @@
 
         <br>
 
-        <a href="./mbti/create">
+        <a href="./{{ room.room_name }}/create">
 
             <div class="make_article">
 
@@ -49,11 +49,11 @@
 
         {% for mbti in mbti_posts %}
 
-        <a href="#" class="box">
+        <a href="./{{ room.room_name }}/{{ mbti.id }}" class="box">
 
             <div class="img">
 
-                <img src="../../images/{{ mbti.mbti_img }}" alt="{{ mbti.mbti_name }}" style="width: 100px">
+                <img src="/images/{{ mbti.mbti_img }}" alt="{{ mbti.mbti_name }}" style="width: 100px">
 
             </div>
 
