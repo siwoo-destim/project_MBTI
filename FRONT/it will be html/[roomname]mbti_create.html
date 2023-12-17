@@ -15,6 +15,7 @@
 {% block container %}
 <section class="content">
 
+<<<<<<< HEAD
     <form method="post" id="box" enctype="multipart/form-data">
 
         <div id="top">
@@ -106,6 +107,32 @@
         </div>
 
     </form>
+=======
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div style="font-size:40px;"> <!-- 이거 div 지워도 됨-->
+
+
+        <p>여기는 {{ room_name }} 룸이야</p>
+
+        <a href="."> 룸으로 돌아가기 </a>
+
+        <p> 여기서 포스트를 올려</p>
+        <form method="post" enctype="multipart/form-data">
+            <input type="text" value="{{ request_mbti_name }}" name="request_mbti_name" placeholder="input your name">
+            <input type="text" value="{{ request_mbti_mbti }}" name="request_mbti_mbti" placeholder="input your mbti">
+            <input id="image" type="file"  accept="image/*" value="{{ raw_mbti_image }}" name="raw_mbti_image">
+            <label for="image"><=이미지</label>
+            <button type="submit">보내기</button>
+        </form>
+
+
+    </div>
+
+
+
+
+>>>>>>> 30ad2e926ff68c6ed923d3059f718d0a4e8f87bb
 
 </section>
 {% endblock %}
