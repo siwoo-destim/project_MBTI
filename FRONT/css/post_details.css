@@ -1,0 +1,164 @@
+@media screen and (max-width: 500px) {
+    #menu {
+        width: 100%;
+    
+        display: flex;
+        justify-content: center;
+    }
+
+    .bar {
+        width: 200px;
+
+        right: -200px;
+    }
+}
+
+@media screen and (min-width: 501px) {
+    #sub_title {
+        margin: 0 auto;
+    }
+
+    #menu {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    } 
+
+    #menu label {
+        margin-right: 10px;
+    }
+
+    .bar {
+        width: 300px;
+
+        right: -300px;
+    }
+}
+
+#sub_title {
+    width: max-content;
+
+    padding: 0px 3vw 0px 3vw;
+
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    white-space: nowrap;
+
+    font-size: 5vh;
+    font-weight: 1000;
+
+    user-select: none;
+}
+
+#sub_title:active {
+    color: rgba(0, 0, 0, 0.637);
+    background-color: transparent;
+}
+
+.content {
+    height: 84%;
+    width: 100%;
+
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+    overflow: auto;
+}
+
+.box {
+    height: auto;
+    width: 50vw;
+
+    margin-top: 132px;
+    margin-left: 19px;
+    margin-right: 19px;
+    margin-bottom: 97px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.detail {
+    height: fit-content;
+
+
+}
+
+.detail h1 {
+    font-size: 5vh;
+}
+
+.detail img {
+    height: auto;
+    width: 32vw;
+
+    aspect-ratio: 4 / 3;
+
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+}
+
+.info div h2 {
+    font-size: 5vh;
+    font-weight: 600;
+}
+
+.info div {
+    font-size: 4vh;
+    font-weight: 600;
+}
+
+#mbti {
+    appearance: none;
+
+    height: 40px;
+    width: 70px;
+
+    padding: none;
+    margin: 0px 10px 0px 10px;
+
+    font-family: 'Hi Melody', sans-serif;
+    font-size: 2.5vh;
+    font-weight: 600;
+    text-align: center;
+
+    background-color: pink;
+
+    border: 2px solid black;
+    border-radius: 7px;
+}
+
+.compare {
+    height: auto;
+    width: 45vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid black;
+    border-radius: 10px;
+
+    background-color: rgba(255, 192, 203, 0.44);
+}
+
+.compare h2 {
+    font-size: 4vh;
+}
+
+.compare_content {
+    
+}

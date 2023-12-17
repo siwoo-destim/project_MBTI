@@ -2,9 +2,9 @@
 
 
 {% block head %}
-<link rel="stylesheet" href="../css/in_rooms.css">
+<link rel="stylesheet" href="/css/in_rooms.css">
 
-<script src="../js/in_rooms.js"></script>
+<script src="/js/in_rooms.js"></script>
 {% endblock %}
 
 {% block top %}
@@ -29,11 +29,11 @@
 
     <div class="head">
 
-        <a href="{{ room.room_name }}/create/"><h1>{{ room.room_alias }}</h1></a>
+        <a href="/room/"><h1>{{ room.room_alias }}</h1></a>
 
         <br>
 
-        <a href="./mbti/create">
+        <a href="{{ room.room_name }}/create/">
 
             <div class="make_article">
 
@@ -43,17 +43,21 @@
 
         </a>
 
+        <br>
+
+        <a href="#" id="delete">방 삭제하기</a>
+
     </div>
 
     <section class="content">
 
         {% for mbti in mbti_posts %}
 
-        <a href="#" class="box">
+        <a href="{{ room.room_name }}/{{mbti.id}}" class="box">
 
             <div class="img">
 
-                <img src="../../images/{{ mbti.mbti_img }}" alt="{{ mbti.mbti_name }}" style="width: 100px">
+                <img src="/images/{{ mbti.mbti_img }}" alt="{{ mbti.mbti_name }}" style="width: 100px">
 
             </div>
 

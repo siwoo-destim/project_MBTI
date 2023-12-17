@@ -1,18 +1,111 @@
 {% extends 'LAYOUT.html' %}
 
+{% block head %}
+
+<link rel="stylesheet" href="/css/make_post.css">
+
+{% endblock %}
+
+{% block top %}
+
+<a href="#" id="sub_title">포스트</a>
+
+{% endblock %}
+
 {% block container %}
+<section class="content">
 
-    <p>여기는 {{ room_name }} 룸이야</p>
+    <form method="post" id="box" enctype="multipart/form-data">
 
-    <a href="."> 룸으로 돌아가기 </a>
+        <div id="top">
 
-    <p> 여기서 포스트를 올려</p>
-    <form method="post" enctype="multipart/form-data">
-        <input type="text" value="{{ request_mbti_name }}" name="request_mbti_name" placeholder="input your name">
-        <input type="text" value="{{ request_mbti_mbti }}" name="request_mbti_mbti" placeholder="input your mbti">
-        <input id="image" type="file"  accept="image/*" value="{{ raw_mbti_image }}" name="raw_mbti_image">
-        <label for="image"><=이미지</label>
-        <button type="submit">보내기</button>
+            MBTI 포스트 만들기
+
+        </div>
+
+        <div class="img">
+        
+        <img id="captured-photo" width="320" height="240">
+        <button id="take_pic">사진 찍기</button>
+        
+        </div>
+
+        <div class="img-file">
+
+        <input type="file" id="image-upload" accept="image/*" style="display: none;">
+        <label for="image-upload" id="upload-label">이미지 업로드</label>
+
+        </div>
+
+        <div class="input_name">
+
+            <h1>자신의 이름 :</h1>
+        
+            <input type="text" name="request_mbti_name">
+
+        </div>
+
+        <div class="input_mbti">
+
+            <h1>MBTI :</h1>
+
+            <div>
+        
+                <select value="{{ request_mbti_mbti }}" name="request_mbti_mbti" id="select">
+
+                    <optgroup label="유형 E">
+
+                        <option value="ESTP">ESTP</option>
+                        <option value="ESFP">ESFP</option>
+                        <option value="ENFP">ENFP</option>
+                        <option value="ENTP">ENTP</option>
+                        <option value="ESTJ">ESTJ</option>
+                        <option value="ESFJ">ESFJ</option>
+                        <option value="ENFJ">ENFJ</option>
+                        <option value="ENTJ">ENTJ</option>
+
+                    </optgroup>
+
+                    <optgroup label="유형 I">
+
+                        <option value="ISTJ">ISTJ</option>
+                        <option value="ISFJ">ISFJ</option>
+                        <option value="INFJ">INFJ</option>
+                        <option value="INTJ">INTJ</option>
+                        <option value="ISTP">ISTP</option>
+                        <option value="ISFP">ISFP</option>
+                        <option value="INFP">INFP</option>
+                        <option value="INTP">INTP</option>
+
+                    </optgroup>
+
+                </select>
+
+                <label class="material-symbols-outlined" for="select" id="up">
+                    expand_more
+                </label>
+
+            </div>
+
+        </div>
+
+        <div id="room_visibility">
+            
+            <div>
+
+                <label for="radio2">방 비공개 </label><input type="checkbox" id="radio2">
+
+            </div>
+            
+        </div>
+
+        <div id="submit">
+
+            <input type="submit" value="만들기">
+
+        </div>
+
     </form>
 
+</section>
 {% endblock %}

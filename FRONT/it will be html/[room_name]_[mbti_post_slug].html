@@ -1,23 +1,90 @@
 {% extends 'LAYOUT.html' %}
 
+{% block head %}
+
+<link rel="stylesheet" href="/css/post_detail.css">
+
+{% endblock %}
+
+{% block top %}
+
+<a href="#" id="sub_title">MBTI</a>
+
+{% endblock %}
+
 {% block container %}
 
-    <a href="."> 룸으로 돌아가기 </a>
+<section class="content">
 
-    <p>이름: {{ mbti.mbti_name }}</p>
-    <p>mbti: {{ mbti.mbti_mbti }}</p>
-    <p>이미지: <img src="/images/{{ mbti.mbti_img }}" alt="{{ mbti.mbti_name }}"> </p>
+    <div class="box">
 
-    <select id="selectbox" name="selectbox" onchange="chageMBTISelect()">
-        <option value="" selected disabled> MBTI 선택</option>
-        {% for mbti_relationship in mbti_relationships %}
-        <option value="{{ mbti_relationship.relationship }}"> {{ mbti_relationship.stakeholders }} </option>
-        {% endfor %}
-    </select>
+        <div class="detail">    
+        
+            <div class="info">
+            
+                <h1>{{ mbti.mbti_name }}</h1>
+            
+                <img src="/images/{{ mbti.mbti_img }}" width="320" height="240">
+            
+                <div>
+                
+                    <h2>{{ mbti.mbti_name }}</h2>
+                    님의 MBTI :
+                    <h2>"{{ mbti.mbti_mbti }}"</h2>
+                
+                </div>
+            
+            </div>
+        
+        </div>
+    
+        <div class="compare">
+                
+            <h2>{{ mbti.mbti_mbti }} 와</h2>
+            
+                <select name="mbti" id="mbti">
+                
+                    <optgroup label="유형 E">
+                    
+                        <option value="ESTP">ESTP</option>
+                        <option value="ESFP">ESFP</option>
+                        <option value="ENFP">ENFP</option>
+                        <option value="ENTP">ENTP</option>
+                        <option value="ESTJ">ESTJ</option>
+                        <option value="ESFJ">ESFJ</option>
+                        <option value="ENFJ">ENFJ</option>
+                        <option value="ENTJ">ENTJ</option>
+                    
+                    </optgroup>
+                
+                    <optgroup label="유형 I">
+                    
+                        <option value="ISTJ">ISTJ</option>
+                        <option value="ISFJ">ISFJ</option>
+                        <option value="INFJ">INFJ</option>
+                        <option value="INTJ">INTJ</option>
+                        <option value="ISTP">ISTP</option>
+                        <option value="ISFP">ISFP</option>
+                        <option value="INFP">INFP</option>
+                        <option value="INTP">INTP</option>
+                    
+                    </optgroup>
+                
+                </select>
+            
+            <h2>의 궁합</h2>
+            
+        </div>
 
-    <p><span id="yourMBTI"> 당신의 MBTI(선택해 주세요!)</span>와 {{ mbti.mbti_mbti }}의 관계</p>
+        <div class="compare_content">
 
-    <p id="mbtiRelationship"> </p>
+            
+
+        </div>
+
+    </div>
+
+</section>
 
 {% endblock %}
 

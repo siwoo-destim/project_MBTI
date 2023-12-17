@@ -12,9 +12,9 @@
     }
 
     .bar {
-        width: 300px;
+        width: 200px;
 
-        right: -300px;
+        right: -200px;
     }
 }
 
@@ -48,15 +48,17 @@
         right: -300px;
     }
 }
-
+ 
 #search {
     height: 40%;
+    width: 100%;
 
     background-color: white ;
 
-    padding-left: 5px;
+    padding-left: 10px;
     padding-right: 5px;
 
+    font-size: 2vh;
 
     border: 2px solid black;
     border-radius: 5px;
@@ -66,7 +68,6 @@
     height: 100%;
 
     display: flex;
-    justify-content: end;
     align-items: center;
 }
 
@@ -85,7 +86,7 @@
 
 #search input {
     height: 80%;
-    width: 80%;
+    width: 100%;
 
     border: none;
 
