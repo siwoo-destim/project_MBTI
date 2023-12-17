@@ -4,7 +4,7 @@
 
     <p>여기는 "{{ room.room_alias }}" 룸이야</p>
 
-    <a href="./mbti/create"> 포스트 올리기 </a>
+    <a href="{{ room.room_name }}/create/"> 포스트 올리기 </a>
     <p> 포스트들 </p>
 
     {% for mbti in mbti_posts %}
@@ -12,7 +12,7 @@
     <p>이름: {{ mbti.mbti_name }}</p>
     <p>mbti: {{ mbti.mbti_mbti }}</p>
     <p>이미지: {{ mbti.mbti_img }}</p>
-    <img src="../../images/{{ mbti.mbti_img }}" alt="{{ mbti.mbti_name }}" style="width: 250px;">
+    <a href="{{ room.room_name }}/{{mbti.id}}"><img src="/images/{{ mbti.mbti_img }}" alt="{{ mbti.mbti_name }}" style="width: 250px;"></a>
     {% endfor%}
 
 {% endblock %}

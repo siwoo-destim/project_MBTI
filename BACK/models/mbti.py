@@ -1,12 +1,13 @@
 from beanie import Document
 from typing import Optional
+from typing import List
 
 
 class MBTI(Document):
     mbti_name: str
     mbti_mbti: str
-    mbti_img: Optional[str] = None
-    mbti_room: Optional[str] = None
+    mbti_img: str
+    mbti_room: str
 
     class Settings:
         name = "mbti_post"
@@ -20,3 +21,12 @@ class MBTI(Document):
                 "mbti_room": "@myroom"
             }
         }
+
+
+# static
+class MBTIRelationship(Document):
+    stakeholders: List[str]
+    relationship: str
+
+    class Settings:
+        name = "mbti_relationship"
