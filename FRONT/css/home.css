@@ -39,49 +39,15 @@
 
 #search {
     height: 40%;
+    width: 100%;
 
-    background-color: white ;
-
+    background-color: white;
     padding-left: 5px;
     padding-right: 5px;
 
-
     border: 2px solid black;
     border-radius: 5px;
-}
-
-#search form {
-    height: 100%;
-
-    display: flex;
-    justify-content: end;
-    align-items: center;
-}
-
-#search .material-symbols-outlined {
-    border: none;
-
-    background-color: white;
-
-    color: rgba(0, 0, 0, 0.637);
-
-    user-select: none;
-
-    font-size: 130%;
-
-}
-
-#search input {
-    height: 80%;
-    width: 80%;
-
-    border: none;
-
-    font-size: 100%;
-}
-
-#search input:focus {
-    outline: none;
+    margin: 0 auto;
 }
 
 .content {

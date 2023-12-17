@@ -5,6 +5,13 @@
         display: flex;
         justify-content: center;
     }
+
+    .bar {
+        width: 200px;
+
+        right: -200px;
+
+    }
 }
 
 @media screen and (min-width: 501px) {
@@ -21,16 +28,25 @@
     #menu label {
         margin-right: 10px;
     }
+
+    .bar {
+        width: 300px;
+
+        right: -300px;
+    }
 }
 
 #sub_title {
-    width: 150px;
+    width: max-content;
+
+    padding: 0px 3vw 0px 3vw;
 
     text-align: center;
     text-decoration: none;
     color: black;
+    white-space: nowrap;
 
-    font-size: 40px;
+    font-size: 5vh;
     font-weight: 1000;
 
     user-select: none;
