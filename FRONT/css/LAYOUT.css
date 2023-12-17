@@ -187,8 +187,6 @@ body {
 
     background-color: pink;
 
-    z-index: 5;
-
     position: fixed;
     bottom: 0;
 }
