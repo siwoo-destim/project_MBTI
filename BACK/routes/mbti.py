@@ -51,11 +51,14 @@ async def retrieve_mbti_posts(raw_user: Annotated[str, Depends(authenticate)],
     if not mbti_posts:
         mbti_posts = []
 
+    is_user_creator = room.room_creator == raw_user
+
     return templates.TemplateResponse("[roomname]mbti.html", {
         "request": request,
         "user": raw_user,
         "mbti_posts": mbti_posts,
-        "room": room
+        "room": room,
+        'is_user_creator': is_user_creator
     })
 
 
@@ -167,3 +170,4 @@ async def retrieve_mbti_post(user: Annotated[str, Depends(authenticate)],
         'user': user,
         'mbti_relationships': mbti_relationship
     })
+

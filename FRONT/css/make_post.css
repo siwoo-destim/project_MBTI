@@ -87,6 +87,8 @@
     font-weight: 1000;
 
     user-select: none;
+
+    cursor: pointer;
 }
 
 #sub_title:active {
@@ -106,13 +108,15 @@
 }
 
 #box {
-    height: 800px;
+    height: max-content;
     width: 370px;
 
     margin-top: 132px;
     margin-left: 19px;
     margin-right: 19px;
     margin-bottom: 97px;
+
+    padding: 60px 0px 60px 0px;
 
     display: flex;
     flex-direction: column;
@@ -131,8 +135,10 @@
 #top {
     font-size: 40px;
     font-weight: 600;
+}
 
-    margin-bottom: 50px;
+#captured-photo {
+    height: fit-content;
 }
 
 #box h1 {

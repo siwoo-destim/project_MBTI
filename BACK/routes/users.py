@@ -41,6 +41,8 @@ async def sign_user_up(username: Annotated[str, Form()],
 
     verified_user = verify_name(username)
 
+    print('verified name:', verified_user)
+
     if not verified_user:
         return HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
@@ -54,7 +56,7 @@ async def sign_user_up(username: Annotated[str, Form()],
 
     # ----- ----- ----- User 도큐먼트 형식으로 바꾼 후 db에 저장
 
-    tobesaved_username = username
+    tobesaved_username = verified_user
 
     user = User(
         username=tobesaved_username,

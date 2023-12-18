@@ -2,6 +2,13 @@
 
 {% block container %}
 
+    {% if is_user_creator %}
+        <a href="/room/delete/{{ room.room_name }}">방 삭제하기</a>
+    {% else %}
+        <p>방 삭제하려면 로그인(실제 만들떈 else문 불필요, 이 문장도)</p>
+    {% endif %}
+
+
     <p>여기는 "{{ room.room_alias }}" 룸이야</p>
 
     <a href="{{ room.room_name }}/create/"> 포스트 올리기 </a>

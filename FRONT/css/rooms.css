@@ -90,6 +90,7 @@
 
     font-size: 3vh;
 
+    cursor: pointer;
 }
 
 #search input {
@@ -106,7 +107,7 @@
 }
 
 .content {
-    height: 76%;
+    height: 84%;
     width: 100%;
 
     padding-top: 10%;
@@ -114,6 +115,12 @@
     text-align: center;
 
     overflow: auto;
+}
+
+.container {
+    height: fit-content;
+
+    margin-bottom: 20%;
 }
 
 .head {
@@ -196,7 +203,13 @@
 }
 
 .room h1 {
+    width: 190px;
+
     font-size: 30px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .room ul {
@@ -209,7 +222,13 @@
 }
 
 .room ul li {
+    width: 80px;
+
     list-style: none;
 
     font-size: 11px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

@@ -1,9 +1,12 @@
+from http import HTTPStatus
+
 from fastapi import APIRouter, Depends, Form, Request, HTTPException, status
 from fastapi.responses import RedirectResponse
 from typing import Annotated
 
 from BACK_TOOL.COMMON.enterance.authenticate import authenticate
 from BACK.models.rooms import Room
+from BACK.models.mbti import MBTI
 from BACK_TOOL.COMMON.enterance.room import entrance_room_setting_private
 from BACK_TOOL.COMMON.verify.name import verify_name
 from BACK_SET.template.connection import templates
@@ -92,7 +95,7 @@ async def add_room(request_user: Annotated[str, Depends(authenticate)],
     response = RedirectResponse(f"/mbti/{verified_room_name}", status_code=302)
     return response
 
-# 룸들 보기]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 룸들 보기]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
 @room_router.get("/")
@@ -108,5 +111,31 @@ async def retrieve_rooms(request: Request,
         "request": request,
         "user": request_user,
         "my_rooms": my_rooms,
-        "rooms": rooms
+        "rooms": rooms,
     })
+
+
+@room_router.get("/delete/{room_name}")
+async def delete_room(room_name: str,
+                      user: Annotated[str, Depends(authenticate)]):
+
+    room = await Room.find_one(Room.room_name == room_name)
+    print(room)
+    print(room_name)
+    if not room:
+        return HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"room with supplied roomname({room_name}) does not exists"
+        )
+
+    if not room.room_creator == user:
+        return HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail=f"{user} does not have permission to delete room"
+        )
+
+    await MBTI.find_many(MBTI.mbti_room == room_name).delete()
+    await room.delete()
+
+    return RedirectResponse(f'/room ', status_code=302)
+

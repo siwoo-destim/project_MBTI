@@ -68,6 +68,8 @@ body {
 
 #menu .material-symbols-outlined {
     font-size: 5vh;
+
+    cursor: pointer;
 }
 
 #menu label {
@@ -90,6 +92,8 @@ body {
     background-color: rgba(128, 128, 128, 0);
 
     transition: visibility 0s 0.7s, background-color 0.7s;
+
+    cursor: pointer;
 }
 
 .bar {
@@ -167,7 +171,7 @@ body {
     visibility: visible;
     background-color: rgba(128, 128, 128, 0.808);
     z-index: 6;
-    transition-delay: 0s;
+
 }
 
 #menu input:checked ~ .bar {
