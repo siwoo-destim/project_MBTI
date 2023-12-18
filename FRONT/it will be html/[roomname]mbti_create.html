@@ -4,6 +4,8 @@
 
 <link rel="stylesheet" href="/css/make_post.css">
 
+<script src="/js/make_post.js"></script>
+
 {% endblock %}
 
 {% block top %}
@@ -15,7 +17,13 @@
 {% block container %}
 <section class="content">
 
-<<<<<<< HEAD
+    <div id="video-container">
+        <video id="video" width="320" height="240" autoplay></video>
+        <div class="take_pic">
+            <button id="capture-btn">사진 찍기</button>
+        </div>
+    </div>
+
     <form method="post" id="box" enctype="multipart/form-data">
 
         <div id="top">
@@ -26,14 +34,14 @@
 
         <div class="img">
         
-        <img id="captured-photo" width="320" height="240">
+        <img id="captured-photo" width="320">
         <button id="take_pic">사진 찍기</button>
         
         </div>
 
         <div class="img-file">
 
-        <input type="file" id="image-upload" accept="image/*" style="display: none;">
+        <input type="file" id="image-upload" accept="image/*" style="display: none;" name="raw_mbti_image">
         <label for="image-upload" id="upload-label">이미지 업로드</label>
 
         </div>
@@ -90,16 +98,6 @@
 
         </div>
 
-        <div id="room_visibility">
-            
-            <div>
-
-                <label for="radio2">방 비공개 </label><input type="checkbox" id="radio2">
-
-            </div>
-            
-        </div>
-
         <div id="submit">
 
             <input type="submit" value="만들기">
@@ -107,32 +105,6 @@
         </div>
 
     </form>
-=======
-    <br><br><br><br><br><br><br><br><br><br><br><br>
-
-    <div style="font-size:40px;"> <!-- 이거 div 지워도 됨-->
-
-
-        <p>여기는 {{ room_name }} 룸이야</p>
-
-        <a href="."> 룸으로 돌아가기 </a>
-
-        <p> 여기서 포스트를 올려</p>
-        <form method="post" enctype="multipart/form-data">
-            <input type="text" value="{{ request_mbti_name }}" name="request_mbti_name" placeholder="input your name">
-            <input type="text" value="{{ request_mbti_mbti }}" name="request_mbti_mbti" placeholder="input your mbti">
-            <input id="image" type="file"  accept="image/*" value="{{ raw_mbti_image }}" name="raw_mbti_image">
-            <label for="image"><=이미지</label>
-            <button type="submit">보내기</button>
-        </form>
-
-
-    </div>
-
-
-
-
->>>>>>> 30ad2e926ff68c6ed923d3059f718d0a4e8f87bb
 
 </section>
 {% endblock %}

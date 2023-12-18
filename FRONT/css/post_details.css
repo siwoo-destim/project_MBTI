@@ -49,6 +49,8 @@
     font-weight: 1000;
 
     user-select: none;
+
+    cursor: pointer;
 }
 
 #sub_title:active {

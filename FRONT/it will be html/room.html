@@ -27,6 +27,8 @@
 {% block container %}
     <section class="content">
 
+        <div class="container">
+
         {% if my_rooms %}
 
         <div class="head">
@@ -47,28 +49,30 @@
 
         </div>
 
-        <div class="box">
+        
 
-            {% for my_room in my_rooms %}
+            <div class="box">
 
-            <a href="/mbti/{{ my_room.room_name }}">
-                <div class="room">
+                {% for my_room in my_rooms %}
 
-                    <h1>{{ my_room.room_alias }}</h1>
+                <a href="/mbti/{{ my_room.room_name }}">
+                    <div class="room">
 
-                    <ul>
-                    
-                        <li><h2>by. {{my_room.room_creator}}</h2></li>
+                        <h1>{{ my_room.room_alias }}</h1>
 
-                    </ul>
+                        <ul>
+                        
+                            <li><h2>by. {{my_room.room_creator}}</h2></li>
 
-                </div>
+                        </ul>
 
-            </a>
+                    </div>
 
-            {% endfor %}
+                </a>
 
-        </div>
+                {% endfor %}
+
+            </div>
 
         {% endif %}
 
@@ -90,27 +94,29 @@
 
         </div>
 
-        <div class="box">
-
-            {% for room in rooms %}
-
-            <a href="/mbti/{{ room.room_name }}">
-
-                <div class="room">
-
-                    <h1>{{ room.room_alias }}</h1>
-
-                    <ul>
+            <div class="box">
+            
+                {% for room in rooms %}
+            
+                <a href="/mbti/{{ room.room_name }}">
+                
+                    <div class="room">
                     
-                        <li><h2>by. {{ room.room_creator }}</h2></li>
-
-                    </ul>
-
-                </div>
-
-            </a>
-
-            {% endfor %}
+                        <h1>{{ room.room_alias }}</h1>
+                    
+                        <ul>
+                        
+                            <li><h2>by. {{ room.room_creator }}</h2></li>
+                        
+                        </ul>
+                    
+                    </div>
+                
+                </a>
+            
+                {% endfor %}
+            
+            </div>
 
         </div>
 

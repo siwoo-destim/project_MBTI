@@ -27,58 +27,54 @@
 
 {% block container %}
 
-    <div class="head">
-
-        <a href="/room/"><h1>{{ room.room_alias }}</h1></a>
-
-        <br>
-
-<<<<<<< HEAD
-        <a href="{{ room.room_name }}/create/">
-=======
-        <a href="./{{ room.room_name }}/create">
->>>>>>> 30ad2e926ff68c6ed923d3059f718d0a4e8f87bb
-
-            <div class="make_article">
-
-                게시물 올리기!
-
-            </div>
-
-        </a>
-
-        <br>
-
-        <a href="#" id="delete">방 삭제하기</a>
-
-    </div>
-
     <section class="content">
 
-        {% for mbti in mbti_posts %}
+        <div class="head">
 
-<<<<<<< HEAD
-        <a href="{{ room.room_name }}/{{mbti.id}}" class="box">
-=======
-        <a href="./{{ room.room_name }}/{{ mbti.id }}" class="box">
->>>>>>> 30ad2e926ff68c6ed923d3059f718d0a4e8f87bb
+            <a href="/room/"><h1>{{ room.room_alias }}</h1></a>
+    
+            <br>
+    
+            <a href="{{ room.room_name }}/create/">
+    
+                <div class="make_article">
+    
+                    게시물 올리기!
+    
+                </div>
+    
+            </a>
+    
+            <br>
+    
+            <a href="#" id="delete">방 삭제하기</a>
+    
+        </div>
 
-            <div class="img">
+        <div class="container">
 
-                <img src="/images/{{ mbti.mbti_img }}" alt="{{ mbti.mbti_name }}" style="width: 100px">
+            {% for mbti in mbti_posts %}
+            
+            <a href="{{ room.room_name }}/{{mbti.id}}" class="box">
+            
+                <div class="img">
+                
+                    <img src="/images/{{ mbti.mbti_img }}" alt="{{ mbti.mbti_name }}">
+                
+                </div>
+            
+                <ul class="info">
+                
+                    <li class="name">이름 : {{ mbti.mbti_name }}</li>
+                    <li class="mbti">MBTI : {{ mbti.mbti_mbti }}</li>    
+                
+                </ul>
+            
+            </a>
+        
+            {% endfor%}
 
-            </div>
-
-            <ul class="info">
-
-                <li class="name">이름 : {{ mbti.mbti_name }}</li>
-                <li class="mbti">MBTI : {{ mbti.mbti_mbti }}</li>    
-
-            </ul>
-
-        </a>
-
-        {% endfor%}
+        </div>
 
     </section>
 

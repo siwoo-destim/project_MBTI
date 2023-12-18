@@ -9,12 +9,12 @@ document.addEventListener("DOMContentLoaded",
         const usernameErrorDiv = createErrorDiv('usernameError');
         const passwordErrorDiv = createErrorDiv('passwordError');
 
-        usernameInput.addEventListener('input', () => validateInput(usernameInput, usernameErrorDiv, /^[a-zA-Z0-9]{8,}$/, "유효한 사용자 이름을 입력해주세요"));
-        passwordInput.addEventListener('input', () => validateInput(passwordInput, passwordErrorDiv, /^[a-zA-Z0-9!@#$%^&*()_+]{8,}$/, "유효한 비밀번호를 입력해주세요"));
+        usernameInput.addEventListener('input', () => validateInput(usernameInput, usernameErrorDiv, /^[a-zA-Z0-9]{4,16}$/, "유효한 사용자 이름을 입력해주세요"));
+        passwordInput.addEventListener('input', () => validateInput(passwordInput, passwordErrorDiv, /^[a-zA-Z0-9!@#$%^&*()_+]{4,}$/, "유효한 비밀번호를 입력해주세요"));
 
         form.addEventListener('submit', function(event) {
-            const isUsernameValid = validateInput(usernameInput, usernameErrorDiv, /^[a-zA-Z0-9]{8,}$/, "유효한 사용자 이름을 입력해주세요");
-            const isPasswordValid = validateInput(passwordInput, passwordErrorDiv, /^[a-zA-Z0-9!@#$%^&*()_+]{8,}$/, "유효한 비밀번호를 입력해주세요");
+            const isUsernameValid = validateInput(usernameInput, usernameErrorDiv, /^[a-zA-Z0-9]{4,16}$/, "유효한 사용자 이름을 입력해주세요");
+            const isPasswordValid = validateInput(passwordInput, passwordErrorDiv, /^[a-zA-Z0-9!@#$%^&*()_+]{4,}$/, "유효한 비밀번호를 입력해주세요");
     
             if (!isUsernameValid || !isPasswordValid) {
                 event.preventDefault();
