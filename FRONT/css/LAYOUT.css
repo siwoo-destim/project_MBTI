@@ -92,8 +92,6 @@ body {
     background-color: rgba(128, 128, 128, 0);
 
     transition: visibility 0s 0.7s, background-color 0.7s;
-
-    cursor: pointer;
 }
 
 .bar {
@@ -171,6 +169,7 @@ body {
     visibility: visible;
     background-color: rgba(128, 128, 128, 0.808);
     z-index: 6;
+    transition-delay: 0s;
 
 }
 
@@ -190,6 +189,8 @@ body {
     border-top: 2px solid;
 
     background-color: pink;
+
+    z-index: 5;
 
     position: fixed;
     bottom: 0;

@@ -133,7 +133,9 @@
     text-decoration: none;
     color: black;
 
-    padding: 2px;
+    padding: 5px;
+
+    font-size: 25px;
 
     background-color: rgba(255, 192, 203, 0.44);
 
