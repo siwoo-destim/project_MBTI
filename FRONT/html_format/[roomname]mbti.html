@@ -20,6 +20,7 @@
     <p>mbti: {{ mbti.mbti_mbti }}</p>
     <p>이미지: {{ mbti.mbti_img }}</p>
     <a href="{{ room.room_name }}/{{mbti.id}}"><img src="/images/{{ mbti.mbti_img }}" alt="{{ mbti.mbti_name }}" style="width: 250px;"></a>
+    <a href="/mbti/delete/{{ room.room_name }}/{{ mbti.id }}">위에꺼 삭제</a>
     {% endfor%}
 
 {% endblock %}

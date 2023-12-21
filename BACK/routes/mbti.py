@@ -52,6 +52,7 @@ async def retrieve_mbti_posts(raw_user: Annotated[str, Depends(authenticate)],
         mbti_posts = []
 
     is_user_creator = room.room_creator == raw_user
+    print(is_user_creator)
 
     return templates.TemplateResponse("[roomname]mbti.html", {
         "request": request,
@@ -171,3 +172,26 @@ async def retrieve_mbti_post(user: Annotated[str, Depends(authenticate)],
         'mbti_relationships': mbti_relationship
     })
 
+
+@mbti_router.get('/delete/{room_name}/{post_slug}')
+async def delete_post(user: Annotated[str, Depends(authenticate)],
+                      post_slug: str,
+                      room_name: str):
+
+    room = await Room.find_one(Room.room_name == room_name)
+    if not room:
+        return HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"room with supplied roomname({room_name}) does not exists"
+        )
+
+    if not room.room_creator == user:
+        return HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail=f"{user} does not have permission to delete mbtipost"
+        )
+
+    a = await MBTI.get(post_slug)
+    await a.delete()
+
+    return RedirectResponse('f/mbti/{room_name}', status_code=302)
