@@ -2,7 +2,7 @@ from BACK.models.mbti import MBTI, MBTIRelationship
 from fastapi import APIRouter, Form, Request, Depends, HTTPException, status, UploadFile, File
 from fastapi.responses import RedirectResponse
 from typing import Annotated
-
+from bson.errors import InvalidId
 from bson.objectid import ObjectId
 
 from BACK.models.users import User
@@ -20,9 +20,6 @@ mbti_router = APIRouter()
 settings = Settings()
 
 image_store_url = settings.IMAGE_STORE_DIR
-
-
-
 
 
 # IN 룸 DO mbti 포스트 리스트 목록 보기]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -138,6 +135,7 @@ async def add_mbti_post(path_request_room_name: str,
 
     return RedirectResponse(f"/mbti/{path_request_room_name}/", status_code=302)
 
+
 # IN 룸 IN mbti포스트 DO see selected mbti post]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 @mbti_router.get("/{room_name}/{mbti_post_slug}")
@@ -146,8 +144,16 @@ async def retrieve_mbti_post(user: Annotated[str, Depends(authenticate)],
                              room_name: str,
                              mbti_post_slug: str):
     # ――――――――――――――――――――――――――――――――――――――――――――――――――
-    mbti = await MBTI.find_one(MBTI.mbti_room == room_name,
-                                MBTI.id == ObjectId(mbti_post_slug))
+
+    try:
+        mbti = await MBTI.find_one(MBTI.mbti_room == room_name,
+                                   MBTI.id == ObjectId(mbti_post_slug))
+
+    except InvalidId:
+        return HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="maybe this error was caused by incorrect mbti post id"
+        )
 
     if not mbti:
         print(room_name)
@@ -177,6 +183,11 @@ async def retrieve_mbti_post(user: Annotated[str, Depends(authenticate)],
 async def delete_post(user: Annotated[str, Depends(authenticate)],
                       post_slug: str,
                       room_name: str):
+    if not user:
+        return HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="login for access"
+        )
 
     room = await Room.find_one(Room.room_name == room_name)
     if not room:
@@ -194,4 +205,4 @@ async def delete_post(user: Annotated[str, Depends(authenticate)],
     a = await MBTI.get(post_slug)
     await a.delete()
 
-    return RedirectResponse('f/mbti/{room_name}', status_code=302)
+    return RedirectResponse(f'/mbti/{room_name}', status_code=302)

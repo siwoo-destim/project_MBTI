@@ -70,7 +70,9 @@
                 
                     <li class="name">이름 : {{ mbti.mbti_name }}</li>
                     <li class="mbti">MBTI : {{ mbti.mbti_mbti }}</li>
-                    <li><a href="/mbti/delete/{{ room.room_name }}/{{ mbti.id }}" class="delete">zzzz</a></li>
+                    {% if is_user_creator %}
+                        <li><a href="/mbti/delete/{{ room.room_name }}/{{ mbti.id }}" class="delete">포스트 삭제</a></li>
+                    {% endif %}
                 
                 </ul>
             
