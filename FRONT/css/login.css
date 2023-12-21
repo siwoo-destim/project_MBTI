@@ -37,9 +37,7 @@
 }
 
 #sub_title {
-    width: max-content;
-
-    padding: 0px 3vw 0px 3vw;
+    width: 100%;
 
     text-align: center;
     text-decoration: none;
