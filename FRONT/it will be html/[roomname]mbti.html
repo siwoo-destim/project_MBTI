@@ -46,31 +46,35 @@
             </a>
     
             <br>
+
+            {% if is_user_creator %}
     
-            <a href="#" id="delete">방 삭제하기</a>
+            <a href="/room/delete/{{ room.room_name }}" class="delete">방 삭제하기</a>
     
+            {% endif %}
         </div>
 
         <div class="container">
 
             {% for mbti in mbti_posts %}
             
-            <a href="{{ room.room_name }}/{{mbti.id}}" class="box">
+            <div class="box">
             
-                <div class="img">
+                <a href="{{ room.room_name }}/{{mbti.id}}" class="img">
                 
                     <img src="/images/{{ mbti.mbti_img }}" alt="{{ mbti.mbti_name }}">
                 
-                </div>
+                </a>
             
                 <ul class="info">
                 
                     <li class="name">이름 : {{ mbti.mbti_name }}</li>
-                    <li class="mbti">MBTI : {{ mbti.mbti_mbti }}</li>    
+                    <li class="mbti">MBTI : {{ mbti.mbti_mbti }}</li>
+                    <li><a href="/mbti/delete/{{ room.room_name }}/{{ mbti.id }}" class="delete">zzzz</a></li>
                 
                 </ul>
             
-            </a>
+            </div>
         
             {% endfor%}
 

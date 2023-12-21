@@ -1,21 +1,18 @@
-document.addEventListener("DOMContentLoaded",
+document.addEventListener("DOMContentLoaded", function(e) {
+    const deleteLink = document.getElementById("delete");
 
-    function(e) {
-        
-        const deleteLink = document.getElementById("delete");
+    deleteLink.addEventListener("click", function(e) {
+        e.preventDefault();
 
-            deleteLink.addEventListener("click", function(e) {
-                e.preventDefault();
+        const confirmation = confirm("진짜로 방을 삭제하시겠습니까?");
 
-                const confirmation = confirm("진짜로 방을 삭제하시겠습니까?");
+        if (confirmation) {
 
-                if (confirmation) {
+            const urlToDelete = deleteLink.getAttribute("href");
 
-                    window.location.href = "삭제하려는 실제 URL";
-                }
-            });
+            console.log(urlToDelete)
 
-
-
-    }
-)
+            window.location.href = urlToDelete;
+        }
+    });
+});

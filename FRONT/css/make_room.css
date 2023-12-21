@@ -61,7 +61,6 @@
     height: 84%;
     width: 100%;
 
-    text-align: center;
     display: flex;
     justify-content: center;
 
@@ -96,6 +95,8 @@
     font-weight: 600;
 
     margin-bottom: 50px;
+
+    text-align: center;
 }
 
 .input_room {
@@ -140,6 +141,10 @@
 
     font-size: 20px;
     font-weight: 600;
+}
+
+#room_visibility p {
+    font-size: 15px;
 }
 
 #submit {

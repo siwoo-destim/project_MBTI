@@ -137,5 +137,5 @@ async def delete_room(room_name: str,
     await MBTI.find_many(MBTI.mbti_room == room_name).delete()
     await room.delete()
 
-    return RedirectResponse(f'/room ', status_code=302)
+    return RedirectResponse('/room', status_code=302)
 
