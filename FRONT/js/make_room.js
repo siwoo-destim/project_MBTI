@@ -11,11 +11,11 @@ document.addEventListener("DOMContentLoaded",
 
         RoomNameInput.addEventListener('input', () => validateInput(RoomNameInput, RoomNameErrorDiv, /^[a-zA-Z가-힣0-9]{1,16}$/, "유효한 방 이름을 입력해주세요 (16자 이하의 한국어, 영어, 숫자)"));
         
-        RoomIdInput.addEventListener('input', () => validateInput(RoomIdInput, RoomIdErrorDiv, /^[a-z0-9]{1,16}$/, "유효한 방 아이디를 입력해주세요 (16자 이하의 영문, 숫자)"));
+        RoomIdInput.addEventListener('input', () => validateInput(RoomIdInput, RoomIdErrorDiv, /^[a-zA-Z0-9]{1,16}$/, "유효한 방 아이디를 입력해주세요 (16자 이하의 영문, 숫자)"));
 
         form.addEventListener('submit', function(event) {
             const isRoomNameValid = validateInput(RoomNameInput, RoomNameErrorDiv, /^[a-zA-Z가-힣0-9]{1,16}$/, "유효한 방 이름을 입력해주세요 (16자 이하의 한국어, 영어, 숫자)");
-            const isRoomIdValid = validateInput(RoomIdInput, RoomIdErrorDiv, /^[a-z0-9]{1,16}$/, "유효한 방 아이디를 입력해주세요 (16자 이하의 영문, 숫자)");
+            const isRoomIdValid = validateInput(RoomIdInput, RoomIdErrorDiv, /^[a-zA-Z0-9]{1,16}$/, "유효한 방 아이디를 입력해주세요 (16자 이하의 영문, 숫자)");
 
             if (!isRoomNameValid || !isRoomIdValid) {
                 event.preventDefault();
