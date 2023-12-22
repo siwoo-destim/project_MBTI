@@ -130,8 +130,8 @@
 }
 
 .head a {
-    text-decoration: none;
     color: black;
+    text-decoration: none;
 }
 
 .head a:active {
@@ -158,13 +158,15 @@
     background-color: rgba(255, 192, 203, 0.44);
 }
 
-.delete {
+#delete {
     font-size: 20px;
     font-weight: 600;
 
     color: black;
     text-decoration: underline;
 }
+
+
 
 .container {
     display: grid;

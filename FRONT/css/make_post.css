@@ -36,43 +36,6 @@
     }
 }
 
-#video-container {
-    width: 100%;
-
-    display: none;
-
-    position: absolute;
-    top: 50%;
-    transform: translate(0%, -50%);
-}
-
-#video {   
-    width: 100%;
-    height: auto;
-
-}
-
-.take_pic {
-    width: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#capture-btn {
-    height: 80%;
-    width: 50%;
-
-    font-size: 4vh;
-    font-weight: 600;
-
-    border: 2px solid black;
-    border-radius: 10px;
-
-    background-color: pink;
-}
-
 #sub_title {
     width: 100%;
 
@@ -135,8 +98,23 @@
     font-weight: 600;
 }
 
-#captured-photo {
+#previewImage {
     height: fit-content;
+    max-width: 250px;
+
+    border-radius: 10px;
+}
+
+#upload-label {
+    padding: 2px;
+
+    font-size: 20px;
+    font-weight: 600;
+
+    border: 2px solid black;
+    border-radius: 5px;
+
+    background-color: pink;
 }
 
 #box h1 {

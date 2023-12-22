@@ -49,7 +49,7 @@
 
             {% if is_user_creator %}
     
-            <a href="/room/delete/{{ room.room_name }}" class="delete">방 삭제하기</a>
+            <a href="/room/delete/{{ room.room_name }}" id="delete">방 삭제하기</a>
     
             {% endif %}
         </div>
@@ -70,7 +70,7 @@
                 
                     <li class="name">이름 : {{ mbti.mbti_name }}</li>
                     <li class="mbti">MBTI : {{ mbti.mbti_mbti }}</li>
-                    <li><a href="/mbti/delete/{{ room.room_name }}/{{ mbti.id }}" class="delete">zzzz</a></li>
+                    <li><a href="/mbti/delete/{{ room.room_name }}/{{ mbti.id }}" id="delete">게시물 지우기</a></li>
                 
                 </ul>
             
