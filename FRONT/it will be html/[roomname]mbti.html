@@ -70,8 +70,12 @@
                 
                     <li class="name">이름 : {{ mbti.mbti_name }}</li>
                     <li class="mbti">MBTI : {{ mbti.mbti_mbti }}</li>
+
+                    {% if is_user_creator %}
+
                     <li><a href="/mbti/delete/{{ room.room_name }}/{{ mbti.id }}" id="delete">게시물 지우기</a></li>
                 
+                    {% endif %}
                 </ul>
             
             </div>
