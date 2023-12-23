@@ -41,9 +41,9 @@
         <div class="compare">
                 
             <h2>{{ mbti.mbti_mbti }} 와</h2>
-            
+
                 <select id="selectbox" name="selectbox" onchange="chageMBTISelect()">
-                
+                    <option value="" selected disabled>(mbti를 선택해 주세요)</option>
                 {% for mbti_relationship in mbti_relationships %}
                     <option value="{{ mbti_relationship.relationship }}"> {{ mbti_relationship.stakeholders }} </option>
                 {% endfor %}
