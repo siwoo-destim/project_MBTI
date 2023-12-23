@@ -14,7 +14,7 @@ from fastapi import FastAPI, Request, Depends
 from typing import Annotated
 from fastapi.responses import RedirectResponse
 
-from mbti_relationship_set import main
+from test import main
 # --------------------------------------------------------------------------------
 
 # 데이터베이스 세팅
