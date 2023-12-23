@@ -199,8 +199,8 @@
     height: 30px;
     width: 250px;
 
-    padding: none;
-    margin: none;
+    padding: 0;
+    margin: 0;
 
     font-family: 'Hi Melody', sans-serif;
     font-size: 20px;
