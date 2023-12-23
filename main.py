@@ -6,12 +6,15 @@ from BACK_SET.template.connection import templates
 from BACK_TOOL.COMMON.enterance.authenticate import authenticate
 
 import uvicorn
+import asyncio
 
 from starlette.staticfiles import StaticFiles
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request, Depends
 from typing import Annotated
 from fastapi.responses import RedirectResponse
+
+from mbti_relationship_set import main
 # --------------------------------------------------------------------------------
 
 # 데이터베이스 세팅
@@ -23,6 +26,7 @@ settings = Settings()
 async def lifespan(app: FastAPI):
     # WHEN 시작할때 DO 데이터베이스 키기
     await settings.initialize_database()
+    await main()
     yield
     # WHEN 꺼질떄 DO NOTHING
     pass
@@ -39,6 +43,9 @@ app.include_router(mbti_router, prefix="/mbti")
 app.mount("/images", StaticFiles(directory="./store/"), name="images")
 app.mount('/css', StaticFiles(directory='./FRONT/css/'), name='css')
 app.mount('/js', StaticFiles(directory='./FRONT/js/'), name='js')
+
+
+
 
 
 # --------------------------------------------------------------------------------

@@ -42,33 +42,11 @@
                 
             <h2>{{ mbti.mbti_mbti }} 와</h2>
             
-                <select name="mbti" id="mbti">
+                <select id="selectbox" name="selectbox" onchange="chageMBTISelect()">
                 
-                    <optgroup label="유형 E">
-                    
-                        <option value="ESTP">ESTP</option>
-                        <option value="ESFP">ESFP</option>
-                        <option value="ENFP">ENFP</option>
-                        <option value="ENTP">ENTP</option>
-                        <option value="ESTJ">ESTJ</option>
-                        <option value="ESFJ">ESFJ</option>
-                        <option value="ENFJ">ENFJ</option>
-                        <option value="ENTJ">ENTJ</option>
-                    
-                    </optgroup>
-                
-                    <optgroup label="유형 I">
-                    
-                        <option value="ISTJ">ISTJ</option>
-                        <option value="ISFJ">ISFJ</option>
-                        <option value="INFJ">INFJ</option>
-                        <option value="INTJ">INTJ</option>
-                        <option value="ISTP">ISTP</option>
-                        <option value="ISFP">ISFP</option>
-                        <option value="INFP">INFP</option>
-                        <option value="INTP">INTP</option>
-                    
-                    </optgroup>
+                {% for mbti_relationship in mbti_relationships %}
+                    <option value="{{ mbti_relationship.relationship }}"> {{ mbti_relationship.stakeholders }} </option>
+                {% endfor %}
                 
                 </select>
             
@@ -76,7 +54,7 @@
             
         </div>
 
-        <div class="compare_content">
+        <div id="mbtiRelationship" class="compare_content">
 
             
 
@@ -102,8 +80,8 @@
             let selectText = mbtiSelect.options[mbtiSelect.selectedIndex].text;
 
             // mbti 관계를 나타내는 문구 (default. 당신의 MBTI(선택해 주세요!)와 MBTI(이 포스트의 MBTI)의 관계) 에서 당신의 MBTI 적기
-            let yourMBTI = document.getElementById("yourMBTI");
-            yourMBTI.textContent = selectText;
+            // let yourMBTI = document.getElementById("yourMBTI");
+            // yourMBTI.textContent = selectText;
 
             // MBTI 설명 띄우기
             let mbtiRelationship = document.getElementById("mbtiRelationship");
