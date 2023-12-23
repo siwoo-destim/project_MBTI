@@ -101,6 +101,7 @@
 #previewImage {
     height: fit-content;
     max-width: 250px;
+    max-height: 350px;
 
     border-radius: 10px;
 }

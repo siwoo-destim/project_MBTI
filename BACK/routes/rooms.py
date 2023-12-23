@@ -1,4 +1,3 @@
-from http import HTTPStatus
 
 from fastapi import APIRouter, Depends, Form, Request, HTTPException, status
 from fastapi.responses import RedirectResponse
@@ -11,6 +10,11 @@ from BACK_TOOL.COMMON.enterance.room import entrance_room_setting_private
 from BACK_TOOL.COMMON.verify.name import verify_name
 from BACK_SET.template.connection import templates
 from BACK_TOOL.COMMON.verify.mbti import verify_format_name_weakly
+from BACK_SET.database.connection import Settings
+
+settings = Settings()
+
+admin_username = settings.ADMIN_USERNAME
 
 room_router = APIRouter()
 
@@ -120,15 +124,14 @@ async def delete_room(room_name: str,
                       user: Annotated[str, Depends(authenticate)]):
 
     room = await Room.find_one(Room.room_name == room_name)
-    print(room)
-    print(room_name)
+
     if not room:
         return HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"room with supplied roomname({room_name}) does not exists"
         )
 
-    if not room.room_creator == user:
+    if not (room.room_creator == user or user == admin_username):
         return HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail=f"{user} does not have permission to delete room"
