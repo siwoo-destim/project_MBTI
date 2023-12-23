@@ -1,77 +1,26 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const videoContainer = document.getElementById('video-container');
-    const video = document.getElementById('video');
-    const takePicBtn = document.getElementById('take_pic');
-    const capturedPhoto = document.getElementById('captured-photo');
-    const captureBtn = document.getElementById('capture-btn');
-    const imageUploadInput = document.getElementById('image-upload');
 
-    let isFileUploadHandled = false;
 
-    // "사진 찍기" 버튼 클릭 이벤트 처리
-    takePicBtn.addEventListener('click', async function (event) {
-        // 이벤트의 기본 동작 중지
-        event.preventDefault();
+    var imageInput = document.getElementById("image-upload");
+    var previewImage = document.getElementById("previewImage");
 
-        try {
-            // 비디오 스트림 가져오기
-            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    imageInput.addEventListener("change", function () {
 
-            // 비디오 요소에 스트림 설정
-            video.srcObject = stream;
+      var file = imageInput.files[0];
 
-            // 비디오 컨테이너를 보이도록 설정
-            videoContainer.style.display = 'block';
-        } catch (error) {
-            console.error('카메라 액세스 오류:', error);
-        }
-    });
+      if (file) {
 
-    // "사진 찍기" 버튼 클릭 시 이미지 캡처 및 표시
-    captureBtn.addEventListener('click', function (event) {
-        // 이벤트의 기본 동작 중지
-        event.preventDefault();
+        var reader = new FileReader();
 
-        const canvas = document.createElement('canvas');
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-        const context = canvas.getContext('2d');
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        reader.onload = function (e) {
 
-        // 캡처된 이미지를 이미지 요소에 표시
-        capturedPhoto.src = canvas.toDataURL('image/png');
+          previewImage.src = e.target.result;
 
-        // 비디오 스트림 중지
-        video.srcObject.getTracks().forEach(track => track.stop());
+          previewImage.style.display = "block";
+        };
 
-        // 비디오 컨테이너를 숨기도록 설정
-        videoContainer.style.display = 'none';
-
-        // Blob으로 변환
-        canvas.toBlob(function (blob) {
-            // Blob으로부터 File 객체 생성
-            const file = new File([blob], 'captured_image.png', { type: 'image/png' });
-
-            // 파일 업로드 input에 파일 추가
-            imageUploadInput.files = [file];
-        }, 'image/png');
-    });
-
-    // 이미지 업로드 처리
-    imageUploadInput.addEventListener('change', function () {
-        if (!isFileUploadHandled) {
-            const file = imageUploadInput.files[0];
-            if (file) {
-                const reader = new FileReader();
-
-                reader.onload = function (e) {
-                    // 업로드된 이미지를 이미지 요소에 표시
-                    capturedPhoto.src = e.target.result;
-                };
-
-                reader.readAsDataURL(file);
-            }
-        }
+        reader.readAsDataURL(file);
+      }
     });
 
     const MbtiNameInput = document.querySelector('input[name="request_mbti_name"]');
