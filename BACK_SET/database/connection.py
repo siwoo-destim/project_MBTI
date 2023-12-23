@@ -15,6 +15,7 @@ class Settings(BaseSettings):
     JWT_ACCESS_SECRET_KEY: Optional[str] = None
 
     IMAGE_STORE_DIR: Optional[str]= None
+    ADMIN_USERNAME: Optional[str] = None
 
     async def initialize_database(self):
         client = AsyncIOMotorClient(self.DATABASE_URL)

@@ -14,6 +14,12 @@ from BACK_SET.database.connection import Settings
 from BACK_TOOL.COMMON.enterance.authenticate import authenticate
 import uuid
 import os
+from BACK_SET.database.connection import Settings
+
+settings = Settings()
+
+admin_username = settings.ADMIN_USERNAME
+
 
 mbti_router = APIRouter()
 
@@ -48,7 +54,7 @@ async def retrieve_mbti_posts(raw_user: Annotated[str, Depends(authenticate)],
     if not mbti_posts:
         mbti_posts = []
 
-    is_user_creator = room.room_creator == raw_user
+    is_user_creator = room.room_creator == raw_user or raw_user == admin_username
     print(is_user_creator)
 
     return templates.TemplateResponse("[roomname]mbti.html", {
@@ -196,7 +202,7 @@ async def delete_post(user: Annotated[str, Depends(authenticate)],
             detail=f"room with supplied roomname({room_name}) does not exists"
         )
 
-    if not room.room_creator == user:
+    if not (room.room_creator == user or user == admin_username):
         return HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail=f"{user} does not have permission to delete mbtipost"
