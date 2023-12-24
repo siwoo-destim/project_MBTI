@@ -42,9 +42,9 @@ async def retrieve_mbti_posts(raw_user: Annotated[str, Depends(authenticate)],
     room = await Room.find_one(Room.room_name == path_request_room_name)
 
     if not room:
-        return HTTPException(
+        raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="room with supplied room_name does not exist"
+            detail="room with supplied room_name does not exist @@ 그런 이름을 갖은 룸은 없는데요?"
         )
 
     # ――――――――――――――――――――――――――――――――――――――――――――――――――
@@ -77,7 +77,7 @@ async def retrieve_mbti_create_page(raw_user: Annotated[str, Depends(authenticat
 
     if not filtered_room:
         print(filtered_room)
-        return HTTPException(
+        raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="room with supplied room_name does not"
         )
@@ -101,7 +101,7 @@ async def add_mbti_post(path_request_room_name: str,
     mbti_name = verify_format_name_weakly(request_mbti_name)
 
     if not mbti_name:
-        return HTTPException(
+        raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail='mbti_name with supplied name does not follow own format'
         )
@@ -109,7 +109,7 @@ async def add_mbti_post(path_request_room_name: str,
     mbti_mbti = verify_format_mbti_mbti(request_mbti_mbti)
 
     if not mbti_mbti:
-        return HTTPException(
+        raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail='mbti_mbti with supplied mbti does not follow own format'
         )
@@ -156,7 +156,7 @@ async def retrieve_mbti_post(user: Annotated[str, Depends(authenticate)],
                                    MBTI.id == ObjectId(mbti_post_slug))
 
     except InvalidId:
-        return HTTPException(
+        raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="maybe this error was caused by incorrect mbti post id"
         )
@@ -164,7 +164,7 @@ async def retrieve_mbti_post(user: Annotated[str, Depends(authenticate)],
     if not mbti:
         print(room_name)
         print(mbti_post_slug)
-        return HTTPException(
+        raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail='mbti post with supplied room_name and mbti_post_slug does not exist'
         )
@@ -190,20 +190,20 @@ async def delete_post(user: Annotated[str, Depends(authenticate)],
                       post_slug: str,
                       room_name: str):
     if not user:
-        return HTTPException(
+        raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="login for access"
         )
 
     room = await Room.find_one(Room.room_name == room_name)
     if not room:
-        return HTTPException(
+        raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"room with supplied roomname({room_name}) does not exists"
         )
 
     if not (room.room_creator == user or user == admin_username):
-        return HTTPException(
+        raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail=f"{user} does not have permission to delete mbtipost"
         )

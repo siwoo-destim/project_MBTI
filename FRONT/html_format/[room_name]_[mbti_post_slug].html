@@ -30,18 +30,11 @@
             let mbtiSelect = document.getElementById("selectbox");
 
             // select element에서 선택된 option의 value가 저장된다.
-            let selectValue = mbtiSelect.options[mbtiSelect.selectedIndex].value;
-
-            // select element에서 선택된 option의 text가 저장된다.
-            let selectText = mbtiSelect.options[mbtiSelect.selectedIndex].text;
-
-            // mbti 관계를 나타내는 문구 (default. 당신의 MBTI(선택해 주세요!)와 MBTI(이 포스트의 MBTI)의 관계) 에서 당신의 MBTI 적기
-            let yourMBTI = document.getElementById("yourMBTI");
-            yourMBTI.textContent = selectText;
+            let selectValue = mbtiSelect.options[mbtiSelect.selectedIndex].value
 
             // MBTI 설명 띄우기
             let mbtiRelationship = document.getElementById("mbtiRelationship");
-            mbtiRelationship.textContent = selectValue;
+            mbtiRelationship.innerHTML = selectValue;
         }
 
 

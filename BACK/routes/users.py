@@ -36,7 +36,7 @@ async def sign_user_up(username: Annotated[str, Form()],
     if user:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
-            detail="User with user_name provided already exists"
+            detail="User with user_name provided already exists @@ 이 이름을 갖은 유저가 이미 존제해요!"
         )
 
     verified_user = verify_name(username)
@@ -44,7 +44,7 @@ async def sign_user_up(username: Annotated[str, Form()],
     print('verified name:', verified_user)
 
     if not verified_user:
-        return HTTPException(
+        raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="유저 이름 이상함"
         )
@@ -90,7 +90,7 @@ async def user_login(userdata: Annotated[OAuth2PasswordRequestForm, Depends()]):
     if not user:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="User with supplied username does not exist"
+            detail="User with supplied username does not exist @@ 그런 유저이름을 갖은 계정은 없어요! -데이타베이스 올림"
         )
     # WHEN 비번 맞으면 DO 엑세스 토큰 발행
     if verify_hash(userdata.password, user.password):

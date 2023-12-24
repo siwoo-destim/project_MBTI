@@ -51,7 +51,7 @@ async def add_room(request_user: Annotated[str, Depends(authenticate)],
 
     # 로그인 되어있는지 확인
     if not request_user:
-        return HTTPException(
+        raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Login for creating own rooms"
         )
@@ -60,7 +60,7 @@ async def add_room(request_user: Annotated[str, Depends(authenticate)],
     verified_room_name = verify_name(request_room_name)
 
     if not verified_room_name:
-        return HTTPException(
+        raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="name format with supplied room_name is not available."
         )
@@ -70,7 +70,7 @@ async def add_room(request_user: Annotated[str, Depends(authenticate)],
     verified_room_alias = verify_format_name_weakly(request_room_alias)
 
     if not verified_room_alias:
-        return HTTPException(
+        raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="alias format with supplied room_alias is not available."
         )
@@ -84,7 +84,7 @@ async def add_room(request_user: Annotated[str, Depends(authenticate)],
     if room:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
-            detail="Room with provided room_name already exists"
+            detail="Room with provided room_name already exists @@ 이미 이 이름을 갖은 룸이 있어요!"
         )
 
     # 저장
@@ -126,13 +126,13 @@ async def delete_room(room_name: str,
     room = await Room.find_one(Room.room_name == room_name)
 
     if not room:
-        return HTTPException(
+        raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"room with supplied roomname({room_name}) does not exists"
         )
 
     if not (room.room_creator == user or user == admin_username):
-        return HTTPException(
+        raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail=f"{user} does not have permission to delete room"
         )

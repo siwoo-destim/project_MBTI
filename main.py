@@ -13,6 +13,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request, Depends
 from typing import Annotated
 from fastapi.responses import RedirectResponse
+from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from test import main
 # --------------------------------------------------------------------------------
@@ -33,6 +34,12 @@ async def lifespan(app: FastAPI):
 
 # APP 연결
 app = FastAPI(lifespan=lifespan)
+
+# Exception handle
+@app.exception_handler(StarletteHTTPException)
+async def http_exception_handler(request: Request, exc: StarletteHTTPException):
+    return templates.TemplateResponse("error.html", {"request": request, "exception": exc}, status_code=exc.status_code)
+
 
 # 고정 경로 설정
 

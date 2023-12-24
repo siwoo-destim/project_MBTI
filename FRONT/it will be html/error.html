@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>너의 MBTI는</title>
 
-        <link rel="stylesheet" href="/FRONT/css/error.css">
+        <link rel="stylesheet" href="/css/error.css">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,8 +29,10 @@
 
                 <h2>오류 페이지</h2>
                 <br>
-                <p>어떠한 문제가 발생한 모양입니다..</p>
-                <p>갤러리로 돌아가려면 아래 버튼을 눌러주세요.</p>
+<!--                <p>어떠한 문제가 발생한 모양입니다..</p>-->
+<!--                <p>갤러리로 돌아가려면 아래 버튼을 눌러주세요.</p>-->
+                {{ exception.status_code }}<br>
+                {{ exception.detail }}
                 <br>
                 <a href="/room/">"갤러리로!"</a>
 
