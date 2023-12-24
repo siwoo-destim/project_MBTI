@@ -183,33 +183,31 @@ body {
 }
 
 .other {
-    height: 16%;
+    height: 10%;
     width: 100%;
+
+    padding-top: 2vh;
 
     border-top: 2px solid;
 
     background-color: pink;
-
-    z-index: 5;
 
     position: fixed;
     bottom: 0;
 }
 
 .other .text {
+    height: 100%;
+
     text-align: center;
-
-    padding-top: 1rem;
-
-    
 }
 
 .other .text h1 {
-    font-size: 20px;
+    font-size: 2vh;
 }
 
 .other .text p {
-    font-size: 20px;
+    font-size: 2vh;
 
     font-weight: 600;
 }

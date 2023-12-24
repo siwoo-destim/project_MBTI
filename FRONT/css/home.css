@@ -99,7 +99,7 @@
 }
 
 .content {
-    height: 84%;
+    height: 88%;
     width: 100%;
 
     text-align: center;
@@ -110,7 +110,7 @@
 .content .text {
     height: fit-content;
     margin-top: 18%;
-    margin-bottom: 16%;
+    margin-bottom: 10%;
 }
 
 .content h1 {
