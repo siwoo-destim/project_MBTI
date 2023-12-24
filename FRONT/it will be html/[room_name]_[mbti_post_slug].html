@@ -4,6 +4,10 @@
 
 <link rel="stylesheet" href="/css/post_details.css">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Gowun+Batang&family=Hi+Melody&family=Noto+Sans+KR:wght@300&family=Playpen+Sans&family=Roboto:wght@500&family=Young+Serif&display=swap" rel="stylesheet">
+
 {% endblock %}
 
 {% block top %}
@@ -22,7 +26,7 @@
         
             <div class="info">
             
-                <h1>{{ mbti.mbti_name }}</h1>
+                <a href="."><h1>{{ mbti.mbti_name }}</h1></a>
             
                 <img src="/images/{{ mbti.mbti_img }}" width="320" height="240">
             

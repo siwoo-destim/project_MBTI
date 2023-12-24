@@ -110,6 +110,11 @@
     gap: 20px;
 }
 
+.info a {
+    text-decoration: none;
+    color: black;
+}
+
 .info div h2 {
     font-size: 40px;
     font-weight: 600;
@@ -165,12 +170,14 @@
 
 .compare_content {
     height: fit-content;
-    width: 240px;
+    min-width: 240px;
+    max-width: 50vw;
 
     padding: 10px;
 
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 23px;
+    font-weight: 500;
+    font-family: 'Gamja Flower', sans-serif;
 
     border: 2px solid black;
     border-radius: 10px;
