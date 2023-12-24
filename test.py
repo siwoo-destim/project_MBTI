@@ -19,7 +19,7 @@ def interpreter(text: str):
 
 
 async def main():
-    file_path = 'mbti_relationship.txt'  # 파일 경로를 지정해주세요
+    file_path = 'mbti_relationship.html'  # 파일 경로를 지정해주세요
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
             content = file.read()

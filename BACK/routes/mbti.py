@@ -175,13 +175,13 @@ async def retrieve_mbti_post(user: Annotated[str, Depends(authenticate)],
         mbti_relationship[i].stakeholders.remove(mbti.mbti_mbti)
         mbti_relationship[i].stakeholders = "".join(mbti_relationship[i].stakeholders)
 
-    print(mbti_relationship)
+    sorted_mbti_relationship = sorted(mbti_relationship, key=lambda x: x.stakeholders)
 
     return templates.TemplateResponse("[room_name]_[mbti_post_slug].html", {
         "request": request,
         'mbti': mbti,
         'user': user,
-        'mbti_relationships': mbti_relationship
+        'mbti_relationships': sorted_mbti_relationship
     })
 
 
