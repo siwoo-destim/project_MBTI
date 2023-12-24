@@ -115,6 +115,8 @@
     justify-items: center;
 
     overflow: auto;
+
+    padding-bottom: 10%;
 }
 
 .head {

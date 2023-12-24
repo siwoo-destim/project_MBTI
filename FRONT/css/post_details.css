@@ -59,7 +59,7 @@
 }
 
 .content {
-    height: 84%;
+    height: 88%;
     width: 100%;
 
 
@@ -173,7 +173,12 @@
     min-width: 240px;
     max-width: 50vw;
 
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    padding: 20px;
 
     font-size: 23px;
     font-weight: 500;
@@ -183,4 +188,17 @@
     border-radius: 10px;
 
     background-color: rgba(255, 192, 203, 0.44);
+}
+
+.compare_content img {
+    height: auto;
+    width: 90%;
+
+    border-radius: 10px;
+
+    box-shadow: 2px 2px 3px pink;
+}
+
+.compare_content strong {
+    font-size: 25px;
 }
