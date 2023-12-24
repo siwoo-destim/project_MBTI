@@ -5,7 +5,7 @@ import traceback
 def interpreter(text: str):
 
     pattern = r'{@ mbti @}\s*([\w, ]+)\s*{@ relationship @}\s*(.*?)\s*{@ endmbti @}'
-    matches = re.finditer(pattern, text)
+    matches = re.finditer(pattern, text, re.DOTALL)
 
     data = []
     for match in matches:
@@ -19,7 +19,7 @@ def interpreter(text: str):
 
 
 async def main():
-    file_path = './mbti_relationship.txt'  # 파일 경로를 지정해주세요
+    file_path = 'mbti_relationship.txt'  # 파일 경로를 지정해주세요
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
             content = file.read()

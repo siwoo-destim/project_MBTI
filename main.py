@@ -47,7 +47,9 @@ app.include_router(user_router, prefix="/user")
 app.include_router(room_router, prefix="/room")
 app.include_router(mbti_router, prefix="/mbti")
 
+
 app.mount("/images", StaticFiles(directory="./store/"), name="images")
+app.mount('/own_images', StaticFiles(directory="./FRONT/z-images/"), name='own_images')
 app.mount('/css', StaticFiles(directory='./FRONT/css/'), name='css')
 app.mount('/js', StaticFiles(directory='./FRONT/js/'), name='js')
 

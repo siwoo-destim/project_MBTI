@@ -84,7 +84,7 @@ async def add_room(request_user: Annotated[str, Depends(authenticate)],
     if room:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
-            detail="Room with provided room_name already exists @@ 이미 이 이름을 갖은 룸이 있어요!"
+            detail="Room with provided room_name already exists @@ 이미 이 이름(id)을 갖은 룸이 있어요!"
         )
 
     # 저장

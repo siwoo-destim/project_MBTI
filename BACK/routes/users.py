@@ -104,7 +104,7 @@ async def user_login(userdata: Annotated[OAuth2PasswordRequestForm, Depends()]):
     # 위의 상황들이 아닐때 오류
     raise HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Invalid details passed"
+        detail="Invalid details passed @@ 아마 비번이 틀릴거애요"
     )
 
 # ---------------------------------------- 로그아웃 ----------------------------------------
