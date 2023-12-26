@@ -27,10 +27,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('box');
     const MbtiNameErrorDiv = createErrorDiv('MbtiNameError');
 
-    MbtiNameInput.addEventListener('input', () => validateInput(MbtiNameInput, MbtiNameErrorDiv, /^[a-zA-Z가-힣0-9]{1,16}$/, "유효한 이름을 입력해주세요 (16자 이하의 한국어, 영어, 숫자)"));
+    MbtiNameInput.addEventListener('input', () => validateInput(MbtiNameInput, MbtiNameErrorDiv, /^[a-zA-Z가-힣ㄱ-ㅎㅏ-ㅣ0-9]{1,16}$/, "유효한 이름을 입력해주세요 (16자 이하의 한국어, 영어, 숫자)"));
 
     form.addEventListener('submit', function(event) {
-        const isNameValid = validateInput(MbtiNameInput, MbtiNameErrorDiv, /^[a-zA-Z가-힣0-9]{1,16}$/, "유효한 이름을 입력해주세요 (16자 이하의 한국어, 영어, 숫자)");
+        const isNameValid = validateInput(MbtiNameInput, MbtiNameErrorDiv, /^[a-zA-Z가-힣ㄱ-ㅎㅏ-ㅣ0-9]{1,16}$/, "유효한 이름을 입력해주세요 (16자 이하의 한국어, 영어, 숫자)");
 
         if (!isNameValid) {
             event.preventDefault();
