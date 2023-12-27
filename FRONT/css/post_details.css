@@ -179,7 +179,7 @@
     align-items: center;
     gap: 20px;
 
-    padding: 20px;
+    padding: 30px;
 
     font-size: 23px;
     font-weight: 600;
@@ -190,7 +190,8 @@
     border: 2px solid black;
     border-radius: 10px;
 
-    background-color: rgba(255, 192, 203, 0.44);
+    background-color: white;
+    font-size: 1rem;
 }
 
 .compare_content img {
