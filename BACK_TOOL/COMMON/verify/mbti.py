@@ -2,7 +2,7 @@ import re
 
 
 def verify_format_name_weakly(mbti_name):
-    p = re.compile('\w{1,16}')
+    p = re.compile('[\w ]{1,16}')
     m = p.match(mbti_name)
 
     if m:
