@@ -217,3 +217,8 @@
     border-bottom: 5px dashed rgba(255, 255, 255, 0.44);
     background: pink;
 }
+
+#back a {
+    color: black;
+    font-size: 20px;
+}
