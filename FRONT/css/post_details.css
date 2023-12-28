@@ -195,7 +195,7 @@
 
 .compare_content img {
     height: auto;
-    width: 90%;
+    width: 100%;
 
     border-radius: 10px;
 
@@ -211,5 +211,9 @@
 }
 
 .compare_content hr {
-    
+    width: 100%;
+
+    border: 0;
+    border-bottom: 5px dashed rgba(255, 255, 255, 0.44);
+    background: pink;
 }
