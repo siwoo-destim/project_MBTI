@@ -181,7 +181,6 @@
 
     padding: 30px;
 
-    font-size: 23px;
     font-weight: 600;
     font-family: none;
 
@@ -204,5 +203,6 @@
 }
 
 .compare_content strong {
-    font-size: 25px;
+    font-size: 1rem;
 }
+

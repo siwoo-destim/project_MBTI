@@ -29,7 +29,7 @@
 
             <h1>방 이름 :</h1>
         
-            <input type="text" value="{{ request_room_alias }}" name="request_room_alias">
+            <input type="text" value="{{ request_room_alias }}" name="request_room_alias" autocomplete="off">
 
         </div>
 
@@ -37,7 +37,7 @@
 
             <h1>방 아이디 :</h1>
         
-            <input type="text" value="{{ request_room_name }}" name="request_room_name">
+            <input type="text" value="{{ request_room_name }}" name="request_room_name" autocomplete="off">
 
         </div>
 
@@ -47,7 +47,7 @@
 
                 <input id="radio2" type="checkbox" value="True" name="request_room_setting_private">
                 <input type="hidden" value="False" name="request_room_setting_private">
-                <label for="request_room_setting_private"> 비공개</label>
+                <label for="radio2"> 비공개</label>
                 <br>
                 <p>(링크를 통해서만 들어갈 수 있습니다)</p>
 
