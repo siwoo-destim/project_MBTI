@@ -62,7 +62,7 @@
             
                 <a href="{{ room.room_name }}/{{mbti.id}}" class="img">
                 
-                    <img src="/images/{{ mbti.mbti_img }}" alt="{{ mbti.mbti_name }}">
+                    <img src="/images/{{ mbti.mbti_img }}" onerror="this.onerror=null;this.src='/own_images/nero00.jpg'" alt="{{ mbti.mbti_name }}">
                 
                 </a>
             
@@ -86,10 +86,4 @@
 
     </section>
 
-{% endblock %}
-
-
-
-
-
-
+{% endblock %} 

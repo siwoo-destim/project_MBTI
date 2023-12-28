@@ -202,7 +202,14 @@
     box-shadow: 2px 2px 3px pink;
 }
 
-.compare_content strong {
-    font-size: 1rem;
+.compare_content h1 {
+    font-size: 35px;
 }
 
+.compare_content h2 {
+    font-size: 25px;
+}
+
+.compare_content strong {
+    border-bottom: 2px solid black;
+}
