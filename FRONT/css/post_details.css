@@ -206,3 +206,13 @@
     font-size: 1rem;
 }
 
+.compare_content hr {
+    width: 90%;
+    border: 0;
+    height: 3px;
+    border:0;
+    background: black;
+    margin-top:15rem;
+    margin-bottom:15rem;
+}
+
